@@ -14,7 +14,7 @@ public class Programa {
 		
 		universo.registrarObservador(vista);
 		controlador.Ejecutar();
-		System.out.println("a ver si funca esta garchaaaaa");
+		System.out.println("No seas mal educado");
 	}
 
 }
