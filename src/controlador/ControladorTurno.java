@@ -22,6 +22,7 @@ public class ControladorTurno {
 				e.printStackTrace();
 			}
 			this.universo.avanzarTurno();
+			System.out.println("Probando lo nuevo");
 		}
 	}
 }
