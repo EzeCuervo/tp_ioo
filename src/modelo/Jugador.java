@@ -15,7 +15,7 @@ public class Jugador extends ElementoDelJuego{
 		ultimoJugador++;
 		this.nombre=nombre;
 		lplanetas=new ArrayList<Planeta>();
-		setLnaves(new ArrayList<NaveEspacial>());
+		lnaves=new ArrayList<NaveEspacial>();
 	}
 
 	public int getIdJugador() {

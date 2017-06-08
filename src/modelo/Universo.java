@@ -5,7 +5,7 @@ import java.util.*;
 public class Universo extends ElementoDelJuego {
 	private List <Planeta> lplanetas = new ArrayList<Planeta>();
 	private List <ElementoDelJuego> elementos = new ArrayList<ElementoDelJuego>();
-	
+	private List <Jugador> jugadores = new ArrayList<Jugador>();
 	public List<ElementoDelJuego> getElementos(){
 		return this.elementos;
 	}
@@ -37,6 +37,21 @@ public class Universo extends ElementoDelJuego {
 			
 		}
 		return null;
+	}
+	
+	public void unirJugador(Jugador jugador){
+		jugadores.add(jugador);
+		
+	}
+
+
+	public List<Jugador> getJugadores() {
+		return jugadores;
+	}
+
+
+	public void setJugadores(List<Jugador> jugadores) {
+		this.jugadores = jugadores;
 	}
 	
 }

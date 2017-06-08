@@ -20,4 +20,13 @@ public class VistaUniverso implements IObservador{
 		}
 		System.out.println("********************************************");
 	}
+	
+	public void leerJugadores(){
+		System.out.println("********************************************");
+		System.out.println("				Jugadores");
+		System.out.println("********************************************");
+		for(Jugador j: this.universo.getJugadores()){
+			System.out.println(j.getNombre().toString());
+		}
+	}
 }

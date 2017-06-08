@@ -10,11 +10,12 @@ public class Programa {
 		// TODO Auto-generated method stub
 		Universo universo = new Universo ();
 		VistaUniverso vista = new VistaUniverso(universo);
-		ControladorTurno controlador = new ControladorTurno (universo, 5);
+		ControladorTurno controlador = new ControladorTurno (universo, 3);
+		controlador.crearJugador(universo);
+		vista.leerJugadores();
 		
-		universo.registrarObservador(vista);
-		controlador.Ejecutar();
-		System.out.println("No seas mal educado");
+		//universo.registrarObservador(vista);
+		//controlador.Ejecutar();
 	}
 
 }
