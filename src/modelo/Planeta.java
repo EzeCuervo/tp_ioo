@@ -88,7 +88,7 @@ public abstract class Planeta extends ElementoDelJuego {
 		if(this.enViajeDeAtaque){
 			if(cantTurnosVA==0){
 				for(NaveEspacial nav: lnavesB){
-					nav.atacarNave();
+					//nav.atacarNave();
 				}
 			}
 		}

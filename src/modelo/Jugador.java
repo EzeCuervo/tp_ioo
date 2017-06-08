@@ -8,12 +8,14 @@ public class Jugador extends ElementoDelJuego{
 	private int idJugador;
 	private String nombre;
 	private List<Planeta> lplanetas;
+	private List<NaveEspacial> lnaves;
 	
 	public Jugador(String nombre){
 		this.idJugador=ultimoJugador;
 		ultimoJugador++;
 		this.nombre=nombre;
 		lplanetas=new ArrayList<Planeta>();
+		setLnaves(new ArrayList<NaveEspacial>());
 	}
 
 	public int getIdJugador() {
@@ -47,6 +49,14 @@ public class Jugador extends ElementoDelJuego{
 	}
 	public void colonizarPlaneta(Planeta planeta1, Planeta planeta2){
 		
+	}
+
+	public List<NaveEspacial> getLnaves() {
+		return lnaves;
+	}
+
+	public void setLnaves(List<NaveEspacial> lnaves) {
+		this.lnaves = lnaves;
 	}
 }
 

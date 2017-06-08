@@ -13,4 +13,10 @@ public class NaveTC extends NaveEspacial{
 		
 	}
 
+	@Override
+	public void atacarNave(Planeta planeta) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
