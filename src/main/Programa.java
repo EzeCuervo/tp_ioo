@@ -1,3 +1,4 @@
+package main;
 import controlador.ControladorTurno;
 import vista.VistaUniverso;
 import modelo.Universo;
