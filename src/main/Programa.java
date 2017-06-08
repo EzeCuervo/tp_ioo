@@ -14,7 +14,6 @@ public class Programa {
 		
 		universo.registrarObservador(vista);
 		controlador.Ejecutar();
-		System.out.println("Viva peron carajo!");
 
 	}
 
