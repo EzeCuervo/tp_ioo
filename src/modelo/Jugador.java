@@ -30,16 +30,16 @@ public class Jugador extends ElementoDelJuego{
 		return lplanetas;
 	}
 	
-	public void prodNaveB(Planeta planeta, int idJugador){
+	public void prodNaveB(Planeta planeta){
 		planeta.prodNaveB();
 	}
-	public void prodNaveD(Planeta planeta, int idJugador){
+	public void prodNaveD(Planeta planeta){
 		planeta.prodNaveD();
 	}
-	public void prodNaveTC(Planeta planeta, int idJugador){
+	public void prodNaveTC(Planeta planeta){
 		planeta.prodNaveTC();
 	}
-	public void prodTorreta(Planeta planeta, int idJugador){
+	public void prodTorreta(Planeta planeta){
 		planeta.construirTorretas();
 	}
 	public void mejorarProdPlaneta(Planeta planeta){
@@ -58,6 +58,15 @@ public class Jugador extends ElementoDelJuego{
 
 	public void setLnaves(List<NaveEspacial> lnaves) {
 		this.lnaves = lnaves;
+	}
+	
+	public Planeta getPlaneta(String nombre){
+		for(Planeta p: this.lplanetas){
+			if(p.nombre.equals(nombre)){
+				return p;
+			}
+		}
+		return null;
 	}
 }
 

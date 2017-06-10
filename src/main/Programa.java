@@ -19,14 +19,14 @@ public class Programa {
 		}
 		//Se crean los planetas y se asigna 1 a cada jugador
 		universo.incializarUniverso();
-		vista.inicioJuego();
 		while(universo.isJuegoFinalizado()){
-
-			}
-			
-			
+			vista.inicioJuego();
+			vista.menuAcciones();
+			controlador.Ejecutar();
 		}
+	
 		//vista.leerJugadores();
 		//controlador.Ejecutar();
-	}
 
+	}
+}

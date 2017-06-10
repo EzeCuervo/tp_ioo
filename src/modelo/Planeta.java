@@ -6,7 +6,7 @@ import java.util.List;
 public abstract class Planeta extends ElementoDelJuego {
 	private static int cantidadPlanetas = 0;
 	private  int tpt=5;
-	private  int tpcnb=5;
+	private  int tpcnb=1;
 	private  int tpcnd=5;
 	private  int tpcntc=5;
 	private int tpmp=20;
@@ -38,7 +38,7 @@ public abstract class Planeta extends ElementoDelJuego {
 	
 	public Planeta(String nombre){
 		this.idOwner=-1;
-		this.poblacion=2;
+		this.poblacion=0;
 		Planeta.cantidadPlanetas= Planeta.cantidadPlanetas+1;
 		this.nombre=nombre;
 		lnavesB = new ArrayList<NaveEspacial>();
