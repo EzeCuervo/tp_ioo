@@ -20,12 +20,15 @@ public class Programa {
 		//Se crean los planetas y se asigna 1 a cada jugador
 		universo.incializarUniverso();
 		vista.inicioJuego();
+<<<<<<< HEAD
 		while(universo.isJuegoFinalizado()){
 
 			}
 			
 			
 		}
+=======
+>>>>>>> master
 		//vista.leerJugadores();
 		//controlador.Ejecutar();
 	}

@@ -83,6 +83,7 @@ public class Universo extends ElementoDelJuego {
 
 	public void setJuegoFinalizado(boolean juegoFinalizado) {
 		this.juegoFinalizado = juegoFinalizado;
+
 	}
 	
 }
