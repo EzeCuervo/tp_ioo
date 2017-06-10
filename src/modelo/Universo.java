@@ -5,16 +5,15 @@ import java.util.*;
 public class Universo extends ElementoDelJuego {
 	private boolean juegoFinalizado=true;
 	private List <Planeta> lplanetas;
-	private List <ElementoDelJuego> elementos;
 	private List <Jugador> jugadores;
-	public List<ElementoDelJuego> getElementos(){
-		return this.elementos;
+	public List<Planeta> getElementos(){
+		return this.lplanetas;
 	}
 
 	public void avanzarTurno(){
 		super.avanzarTurno();
-		for (ElementoDelJuego e : this.elementos){
-			e.avanzarTurno();
+		for (Planeta pl : this.lplanetas){
+			pl.avanzarTurno();
 		}
 		this.actualizarObservadores();
 	}
@@ -23,7 +22,6 @@ public class Universo extends ElementoDelJuego {
 		super();
 		jugadores = new ArrayList<Jugador>();
 		lplanetas = new ArrayList<Planeta>();
-		elementos = new ArrayList<ElementoDelJuego>();
 
 	}
 	
@@ -42,6 +40,8 @@ public class Universo extends ElementoDelJuego {
 			for(Jugador j : jugadores){
 				if(idJugador==j.getIdJugador()){
 					j.getLplanetas().add(p);
+					p.idOwner=idJugador;
+					p.poblacion=2;
 				}
 			}
 		}
@@ -86,4 +86,12 @@ public class Universo extends ElementoDelJuego {
 
 	}
 	
+	public void mostrarPlanetasUser(Jugador j){
+		System.out.println("Tus planetas:");
+		for(Planeta pl : j.getLplanetas()){
+			System.out.println(pl.getNombre());
+		}
+	}
+	
 }
+

@@ -9,12 +9,11 @@ public class Terrestre extends Planeta{
 	public void avanzarTurno(){
 		super.avanzarTurno();
 		//En el planeta terrestre de la poblacion crece en forma cuadratica
-		this.poblacion = this.turnoActualElemento *this.turnoActualElemento;
+		this.poblacion = this.poblacion * 2;
 	}
 	public String toString() {
 		// TODO Auto-generated method stub
-		return"El Planeta " + this.nombre + " es una terrestre" + 
-				"con una poblacion de " + this.poblacion + " habitantes.";
+		return"El Planeta " + this.nombre + " es un terrestre con " + this.poblacion + " habitantes.";
 	}
 
 }
