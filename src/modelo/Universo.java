@@ -35,6 +35,16 @@ public class Universo extends ElementoDelJuego {
 		return null;
 	}
 	
+	public void asignarPlaneta(Planeta p, int idJugador){
+		if(p.idOwner == -1){
+			for(Jugador j : jugadores){
+				if(idJugador==j.getIdJugador()){
+					j.getLplanetas().add(p);
+				}
+			}
+		}
+	}
+	
 	public void unirJugador(Jugador jugador){
 		jugadores.add(jugador);
 		
@@ -51,17 +61,18 @@ public class Universo extends ElementoDelJuego {
 	}
 	
 	public void incializarUniverso(){
-		// Se crean 5 planetas
+		// Se crean 4 planetas
 		Planeta tierra = new Terrestre("Tierra");
 		Planeta marte = new  Terrestre("Marte");
-		Planeta venus =  new Tundra ("Venus");
 		Planeta junip = new Lava("Junip");
 		Planeta melmack = new Tundra("Melmack");
 		this.lplanetas.add(tierra);	
 		this.lplanetas.add(marte);
-		this.lplanetas.add(venus);
 		this.lplanetas.add(junip);
 		this.lplanetas.add(melmack);
+		//Se asigna 1 planeta a cada jugador
+		asignarPlaneta(tierra, 0);
+		asignarPlaneta(marte,1);
 	}
 	
 }

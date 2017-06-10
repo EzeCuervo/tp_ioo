@@ -29,6 +29,7 @@ public class Jugador extends ElementoDelJuego{
 	public List<Planeta> getLplanetas() {
 		return lplanetas;
 	}
+	
 	public void prodNaveB(Planeta planeta, int idJugador){
 		planeta.prodNaveB();
 	}

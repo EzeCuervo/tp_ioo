@@ -41,10 +41,22 @@ public class VistaConsola implements IObservador{
 	
 	public void menuAcciones(){
 		System.out.println("********************************************");
-		System.out.println("Turno jugador");
+		System.out.println("Menu de acciones");
+		System.out.println("********************************************");
+		
+
+	}
+		
+	public void inicioJuego(){
+		System.out.println("********************************************");
+		System.out.println("Juego inicializado!");
 		System.out.println("********************************************");
 		for(Jugador j: this.universo.getJugadores()){
-			System.out.println(j.getNombre().toString());
+			System.out.println("Jugador: " + j.getNombre().toString());
+			for(Planeta pl : j.getLplanetas()){
+				System.out.println("Tiene el planeta " + pl.getNombre());
+			}
+		}
+		System.out.println("********************************************");
 	}
-}
 }
