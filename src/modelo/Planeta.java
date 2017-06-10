@@ -11,12 +11,10 @@ public abstract class Planeta extends ElementoDelJuego {
 	private  int tpcntc=5;
 	private int tpmp=20;
 	private int tpva=3;
-	public static int GetCantidadPlanetas(){
-		return Planeta.cantidadPlanetas;
-	}
 	protected int poblacion;
 	protected String nombre;
 	protected String atacado;
+	protected int idOwner;
 	protected int cantidadTorretas;
 	protected int cantidadNaveB;
 	protected int cantidadNaveD;
@@ -39,12 +37,16 @@ public abstract class Planeta extends ElementoDelJuego {
 	protected boolean enViajeDeAtaque = false;
 	
 	public Planeta(String nombre){
+		this.idOwner=-1;
 		this.poblacion=2;
 		Planeta.cantidadPlanetas= Planeta.cantidadPlanetas+1;
 		this.nombre=nombre;
 		lnavesB = new ArrayList<NaveEspacial>();
 		lnavesD = new ArrayList<NaveEspacial>();
 		lnavesTC = new ArrayList<NaveEspacial>();
+	}
+	public static int GetCantidadPlanetas(){
+		return Planeta.cantidadPlanetas;
 	}
 	
 	public int getCantidadTorretas() {

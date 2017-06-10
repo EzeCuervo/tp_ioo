@@ -41,10 +41,29 @@ public class VistaConsola implements IObservador{
 	
 	public void menuAcciones(){
 		System.out.println("********************************************");
-		System.out.println("Turno jugador");
+		System.out.println("Menu de acciones posibles");
+		System.out.println("********************************************");
+		System.out.println("1 - Producir nave de Batalla)");
+		System.out.println("2 - Producir nave de Destructor)");
+		System.out.println("3 - Producir nave colonizadora)");
+		System.out.println("4 - Producir torreta");
+		System.out.println("5 - Mejorar produccion de planeta");
+		System.out.println("6 - Colonizar planeta");
+		System.out.println("7 - Atacar flota)");
+		System.out.println("8 - Atcar planeta)");
+		System.out.println("Seleccione una opcion:");
+	}
+		
+	public void inicioJuego(){
+		System.out.println("********************************************");
+		System.out.println("Juego inicializado!");
 		System.out.println("********************************************");
 		for(Jugador j: this.universo.getJugadores()){
-			System.out.println(j.getNombre().toString());
+			System.out.println("Jugador: " + j.getNombre().toString());
+			for(Planeta pl : j.getLplanetas()){
+				System.out.println("Tiene el planeta " + pl.getNombre());
+			}
+		}
+		System.out.println("********************************************");
 	}
-}
 }

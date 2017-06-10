@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import modelo.*;
+import vista.VistaConsola;
 
 public class ControladorTurno {
 	Scanner sc = new Scanner (System.in);
