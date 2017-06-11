@@ -1,8 +1,8 @@
 package modelo;
 
 public class NaveD extends NaveEspacial {
-	public NaveD(){
-		super();
+	public NaveD(int idOwner, int idPlaneta){
+		super(idOwner, idPlaneta);
 		this.damNav=0;
 		this.damPob=5;
 		this.resistencia=5000;

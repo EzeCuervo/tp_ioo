@@ -8,13 +8,14 @@ public abstract class Planeta extends ElementoDelJuego {
 	private  int tpt=5;
 	private  int tpcnb=1;
 	private  int tpcnd=5;
-	private  int tpcntc=5;
+	private  int tpcntc=1;
 	private int tpmp=20;
 	private int tpva=3;
 	protected int poblacion;
 	protected String nombre;
 	protected String atacado;
 	protected int idOwner;
+	protected int idPlaneta;
 	protected int cantidadTorretas;
 	protected int cantidadNaveB;
 	protected int cantidadNaveD;
@@ -39,6 +40,7 @@ public abstract class Planeta extends ElementoDelJuego {
 	public Planeta(String nombre){
 		this.idOwner=-1;
 		this.poblacion=0;
+		this.idPlaneta=cantidadPlanetas;
 		Planeta.cantidadPlanetas= Planeta.cantidadPlanetas+1;
 		this.nombre=nombre;
 		lnavesB = new ArrayList<NaveEspacial>();
@@ -109,7 +111,7 @@ public abstract class Planeta extends ElementoDelJuego {
 		if(this.construyendoNaveB){
 			if(cantTurnosNB==0){
 				this.cantidadNaveB = this.cantidadNaveB + 1;
-				NaveEspacial nav = new NaveB();
+				NaveEspacial nav = new NaveB(getIdOwner(), getIdPlaneta());
 				this.lnavesB.add(nav);
 				this.construyendoNaveB=false;
 				this.cantTurnosNB=tpcnb;
@@ -136,7 +138,7 @@ public abstract class Planeta extends ElementoDelJuego {
 		if(this.construyendoNaveD){
 			if(cantTurnosND==0){
 				this.cantidadNaveD = this.cantidadNaveD + 1;
-				NaveEspacial nav = new NaveD();
+				NaveEspacial nav = new NaveD(getIdOwner(), getIdPlaneta());
 				this.lnavesD.add(nav);
 				this.construyendoNaveD=false;
 				this.cantTurnosND=tpcnd;
@@ -147,7 +149,7 @@ public abstract class Planeta extends ElementoDelJuego {
 		if(this.construyendoNaveTC){
 			if(cantTurnosNTC==0){
 				this.cantidadNaveTC = this.cantidadNaveTC + 1;
-				NaveEspacial nav = new NaveTC();
+				NaveEspacial nav = new NaveTC(getIdOwner(), getIdPlaneta());
 				this.lnavesTC.add(nav);
 				this.construyendoNaveTC=false;
 				this.cantTurnosNTC=tpcntc;
@@ -187,6 +189,15 @@ public abstract class Planeta extends ElementoDelJuego {
 	}
 	public void setLtorretas(List<Torreta> ltorretas) {
 		this.ltorretas = ltorretas;
+	}
+	public int getIdOwner() {
+		return idOwner;
+	}
+	public void setIdOwner(int idOwner) {
+		this.idOwner = idOwner;
+	}
+	public int getIdPlaneta() {
+		return idPlaneta;
 	}
 	
 	

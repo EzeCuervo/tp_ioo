@@ -1,6 +1,8 @@
 package modelo;
 
 public abstract class NaveEspacial extends ElementoDelJuego{
+	protected int idOwner;
+	protected int idPlaneta;
 	protected int resistencia;
 	protected int damNav;
 	protected int damPob;
@@ -19,9 +21,11 @@ public abstract class NaveEspacial extends ElementoDelJuego{
 		super.avanzarTurno();
 
 	}
-	public NaveEspacial(){
+	public NaveEspacial(int idOwner, int idPlaneta){
 		this.resistencia=resistencia;
 		this.damNav=damNav;
+		this.idOwner=idOwner;
+		this.idPlaneta=idPlaneta;
 
 	}
 
