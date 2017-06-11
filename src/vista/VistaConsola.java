@@ -36,7 +36,6 @@ public class VistaConsola implements IObservador{
 	
 	public void menuAcciones(){
 		System.out.println("********************************************");
-<<<<<<< Temporary merge branch 1
 		System.out.println("Menu de acciones posibles");
 		System.out.println("********************************************");
 		System.out.println("1 - Producir nave de Batalla");
@@ -48,12 +47,7 @@ public class VistaConsola implements IObservador{
 		System.out.println("7 - Atacar flota");
 		System.out.println("8 - Atacar planeta");
 		System.out.println("Seleccione una opcion:");
-=======
-		System.out.println("Menu de acciones");
-		System.out.println("********************************************");
-		
 
->>>>>>> Temporary merge branch 2
 	}
 		
 	public void inicioJuego(){

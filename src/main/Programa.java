@@ -20,14 +20,13 @@ public class Programa {
 		//Se crean los planetas y se asigna 1 a cada jugador
 		universo.incializarUniverso();
 		vista.inicioJuego();
-<<<<<<< Temporary merge branch 1
+
 		while(universo.isJuegoFinalizado()){
 			vista.inicioJuego();
 			vista.menuAcciones();
 			controlador.Ejecutar();
 		}
-=======
->>>>>>> Temporary merge branch 2
+
 		//vista.leerJugadores();
 		//controlador.Ejecutar();
 
