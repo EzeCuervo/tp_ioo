@@ -27,7 +27,7 @@ public class Universo extends ElementoDelJuego {
 	
 	public Planeta getPlaneta(String nombre){
 		for(Planeta p: lplanetas){
-			if(nombre==p.getNombre()){
+			if(nombre.equals(p.getNombre())){
 				return p;
 			}
 			

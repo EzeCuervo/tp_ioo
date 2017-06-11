@@ -48,8 +48,10 @@ public class Jugador extends ElementoDelJuego{
 	public void atacarPlaneta(Planeta planeta1, Planeta planeta2){
 		
 	}
-	public void colonizarPlaneta(Planeta planeta1, Planeta planeta2){
-		
+	public void colonizarPlaneta(Planeta origen, Planeta destino, int integrantes){
+		origen.getNaveTC(getLnaves()).agregarIntegrantes(integrantes);
+		origen.viajarColonizar(destino,origen.getNaveTC(getLnaves()));
+		//origen.getNaveTC(getLnaves()).colonizar(destino, integrantes);
 	}
 
 	public List<NaveEspacial> getLnaves() {

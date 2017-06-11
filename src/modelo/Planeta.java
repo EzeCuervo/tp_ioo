@@ -11,6 +11,7 @@ public abstract class Planeta extends ElementoDelJuego {
 	private  int tpcntc=1;
 	private int tpmp=20;
 	private int tpva=3;
+	private int tpvc=2;
 	protected int poblacion;
 	protected String nombre;
 	protected String atacado;
@@ -25,10 +26,12 @@ public abstract class Planeta extends ElementoDelJuego {
 	protected int cantTurnosND = tpcnd;
 	protected int cantTurnosNTC = tpcntc;
 	protected int cantTurnosMP = tpmp;
-	protected int cantTurnosVA= tpva;
+	protected int cantTurnosVA = tpva;
+	protected int cantTurnosVC = tpvc;
 	private List<NaveEspacial> lnavesB = new ArrayList<NaveEspacial>();
 	private List<NaveEspacial> lnavesD = new ArrayList<NaveEspacial>();
 	private List<NaveEspacial> lnavesTC = new ArrayList<NaveEspacial>();
+	private List<NaveEspacial> lnavesViaje = new ArrayList<NaveEspacial>();
 	private List<Torreta> ltorretas = new ArrayList<Torreta>();
 	protected boolean construyendoTorretas = false;
 	protected boolean construyendoNaveB = false;
@@ -36,6 +39,7 @@ public abstract class Planeta extends ElementoDelJuego {
 	protected boolean construyendoNaveTC = false;
 	protected boolean mejorandoProduccion = false;
 	protected boolean enViajeDeAtaque = false;
+	protected boolean enViajeAColonizar = false;
 	
 	public Planeta(String nombre){
 		this.idOwner=-1;
@@ -83,6 +87,12 @@ public abstract class Planeta extends ElementoDelJuego {
 		enViajeDeAtaque = true;
 		this.atacado=planeta.nombre;
 		
+	}
+	public void viajarColonizar(Planeta planeta, NaveTC nave){
+		enViajeAColonizar = true;
+		nave.setIdPlanetaDest(planeta.getIdPlaneta());
+		this.lnavesViaje.add(nave);
+		this.lnavesTC.remove(nave);
 	}
 	
 	
@@ -157,6 +167,18 @@ public abstract class Planeta extends ElementoDelJuego {
 				this.cantTurnosNTC--;
 			}
 		}
+		
+		if(this.enViajeAColonizar){
+			for(NaveTC naveTC : lnavesTC){
+			if(cantTurnosVC==0){
+				getNaveTC(lnavesViaje).colonizar(getNaveTC(lnavesViaje).getIdPlanetaDest(), integrantes);
+				getNaveTC(lnavesTC).colonizar(planeta, integrantes);
+				this.enViajeAColonizar=false;
+			} else{
+				this.cantTurnosVC--;
+			}
+			}
+		}
 	}
 	
 	public int getPoblacion() {
@@ -199,7 +221,12 @@ public abstract class Planeta extends ElementoDelJuego {
 	public int getIdPlaneta() {
 		return idPlaneta;
 	}
-	
-	
+	public void setPoblacion(int poblacion) {
+		this.poblacion = poblacion;
+	}
+	public NaveTC getNaveTC(List<NaveEspacial> lnavesTC){
+		return (NaveTC) lnavesTC.get(0);
+		
+	}
 
 }

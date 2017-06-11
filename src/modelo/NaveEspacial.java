@@ -7,6 +7,7 @@ public abstract class NaveEspacial extends ElementoDelJuego{
 	protected int damNav;
 	protected int damPob;
 	protected int poblacion;
+	protected int idPlanetaDest;
 	private boolean enTransito = false;
 	
 	
@@ -26,9 +27,18 @@ public abstract class NaveEspacial extends ElementoDelJuego{
 		this.damNav=damNav;
 		this.idOwner=idOwner;
 		this.idPlaneta=idPlaneta;
+		this.idPlanetaDest=-1;
 
 	}
 
+
+	public int getIdPlanetaDest() {
+		return idPlanetaDest;
+	}
+
+	public void setIdPlanetaDest(int idPlanetaDest) {
+		this.idPlanetaDest = idPlanetaDest;
+	}
 
 	public int getResistencia() {
 		return resistencia;

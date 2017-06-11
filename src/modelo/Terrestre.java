@@ -13,7 +13,7 @@ public class Terrestre extends Planeta{
 	}
 	public String toString() {
 		// TODO Auto-generated method stub
-		return"El Planeta " + this.nombre + " es un terrestre con " + this.poblacion + " habitantes.";
+		return"El Planeta " + this.nombre + " es un terrestre con " + this.poblacion + " habitantes. Su dueño es " + getIdOwner();
 	}
 
 }

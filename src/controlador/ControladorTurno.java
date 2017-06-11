@@ -26,7 +26,7 @@ public class ControladorTurno {
 		this.stringLeido=sc2.nextLine();
 	}
 	public void leerString2(){
-		this.stringLeido=sc3.nextLine();
+		this.stringLeido2=sc3.nextLine();
 	}
 	
 	public void leerOpcion(){
@@ -79,12 +79,14 @@ public class ControladorTurno {
 			case 6:
 				//Colonizar planeta
 				universo.mostrarPlanetasSinUser();
-				System.out.println("Ingrese nombre planeta a colonizar: ");
+				System.out.println("Ingrese nombre planeta a colonizar:");
 				leerString();
 				universo.mostrarPlanetasConNTC(j);
-				leerString2();
 				System.out.println("Ingrese planeta de donde sale la nave colonizadora");
-				j.colonizarPlaneta(j.getPlaneta(stringLeido), universo.getPlaneta(stringLeido2));
+				leerString2();
+				System.out.println("Ingrese la cantidad de integrantes de la nave colonizadora (MIN 1 - MAX " + universo.getPlaneta(stringLeido2).getPoblacion() + ")");
+				leerOpcion();
+				j.colonizarPlaneta(universo.getPlaneta(stringLeido), universo.getPlaneta(stringLeido2), opcion);
 				break;
 			}
 			this.universo.avanzarTurno();

@@ -5,17 +5,18 @@ public class NaveTC extends NaveEspacial{
 		super(idOwner, idPlaneta);
 		this.damNav=0;
 		this.damPob=0;
-		this.resistencia=8000;
-		this.poblacion=600;
+		this.resistencia=100;
+		this.poblacion=0;
 	}
 	
-	private void idOwner(int idPlaneta) {
-		// TODO Auto-generated method stub
-		
+	public void agregarIntegrantes(int integrantes){
+		this.poblacion=integrantes;
 	}
-
-	public void colonizar(Planeta planeta){
-		
+	
+	public void colonizar(Planeta planeta, int integrantes){
+		planeta.setPoblacion(integrantes);
+		planeta.setIdOwner(idOwner);
+		this.poblacion=0;
 	}
 
 	@Override
