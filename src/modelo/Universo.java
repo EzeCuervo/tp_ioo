@@ -86,12 +86,30 @@ public class Universo extends ElementoDelJuego {
 
 	}
 	
+	public List<Planeta> getLplanetas() {
+		return lplanetas;
+	}
+
 	public void mostrarPlanetasUser(Jugador j){
 		System.out.println("Tus planetas:");
 		for(Planeta pl : j.getLplanetas()){
 			System.out.println(pl.getNombre());
 		}
 	}
-	
+	public void mostrarPlanetasSinUser(){
+		System.out.println("Planetas sin colonizar:");
+		for(Planeta pl : getLplanetas()){
+			if(pl.getIdOwner()==-1)
+			System.out.println(pl.getNombre());
+		}
+	}
+	public void mostrarPlanetasConNTC(Jugador j){
+		System.out.println("Planetas naves colonizadoras:");
+		for(Planeta pl : j.getLplanetas()){
+			if(!pl.getLnavesTC().isEmpty()){
+			System.out.println(pl.getNombre());
+			}
+		}
+	}
 }
 

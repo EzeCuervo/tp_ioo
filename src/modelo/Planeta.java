@@ -188,6 +188,12 @@ public abstract class Planeta extends ElementoDelJuego {
 	public void setLtorretas(List<Torreta> ltorretas) {
 		this.ltorretas = ltorretas;
 	}
+	public int getIdOwner() {
+		return idOwner;
+	}
+	public void setIdOwner(int idOwner) {
+		this.idOwner = idOwner;
+	}
 	
 	
 

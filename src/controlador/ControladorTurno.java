@@ -9,9 +9,11 @@ import vista.VistaConsola;
 public class ControladorTurno {
 	Scanner sc = new Scanner (System.in);
 	Scanner sc2 = new Scanner (System.in);
+	Scanner sc3 = new Scanner (System.in);
 	private int cantidadTurnos;
 	int opcion;
-	String leerString;
+	String stringLeido;
+	String stringLeido2;
 	public Universo universo;
 	
 	public ControladorTurno(Universo universo, int turnos){
@@ -21,7 +23,10 @@ public class ControladorTurno {
 	}
 	
 	public void leerString(){
-		this.leerString=sc2.nextLine();
+		this.stringLeido=sc2.nextLine();
+	}
+	public void leerString2(){
+		this.stringLeido=sc3.nextLine();
 	}
 	
 	public void leerOpcion(){
@@ -30,7 +35,7 @@ public class ControladorTurno {
 	
 	public void crearJugador(Universo universo){
 		leerString();
-		Jugador jug = new Jugador(leerString);
+		Jugador jug = new Jugador(stringLeido);
 		universo.unirJugador(jug);
 	}
 	
@@ -45,33 +50,43 @@ public class ControladorTurno {
 				universo.mostrarPlanetasUser(j);
 				System.out.println("Ingrese nombre planeta: ");
 				leerString();
-				j.prodNaveB(j.getPlaneta(leerString));
+				j.prodNaveB(j.getPlaneta(stringLeido));
 				break;
 			case 2:
 				universo.mostrarPlanetasUser(j);
 				System.out.println("Ingrese nombre planeta: ");
 				leerString();
-				j.prodNaveD(j.getPlaneta(leerString));
+				j.prodNaveD(j.getPlaneta(stringLeido));
 				break;
 			case 3:
 				universo.mostrarPlanetasUser(j);
 				System.out.println("Ingrese nombre planeta: ");
 				leerString();
-				j.prodNaveTC(j.getPlaneta(leerString));
+				j.prodNaveTC(j.getPlaneta(stringLeido));
 				break;
 			case 4:
 				universo.mostrarPlanetasUser(j);
 				System.out.println("Ingrese nombre planeta: ");
 				leerString();
-				j.prodTorreta(j.getPlaneta(leerString));
+				j.prodTorreta(j.getPlaneta(stringLeido));
 				break;
 			case 5:
 				universo.mostrarPlanetasUser(j);
 				System.out.println("Ingrese nombre planeta: ");
 				leerString();
-				j.mejorarProdPlaneta(j.getPlaneta(leerString));
+				j.mejorarProdPlaneta(j.getPlaneta(stringLeido));
 				break;
-				}
+			case 6:
+				//Colonizar planeta
+				universo.mostrarPlanetasSinUser();
+				System.out.println("Ingrese nombre planeta a colonizar: ");
+				leerString();
+				universo.mostrarPlanetasConNTC(j);
+				leerString2();
+				System.out.println("Ingrese planeta de donde sale la nave colonizadora");
+				j.colonizarPlaneta(j.getPlaneta(stringLeido), universo.getPlaneta(stringLeido2));
+				break;
+			}
 			this.universo.avanzarTurno();
 			}
 		}
