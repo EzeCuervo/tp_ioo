@@ -17,24 +17,34 @@ public class VistaConsola implements IObservador{
 		for(Jugador j: this.universo.getJugadores()){
 			System.out.println(j.toString());
 			for(Planeta pl: this.universo.getLplanetas()){
+				int cantND=0, cantNB=0, cantNTC=0;
 				if(pl.getIdOwner()==j.getIdJugador()){
-				System.out.println(pl.toString());
-				for(NaveEspacial navB: this.universo.getLnavesB()){
-					if(navB.getIdPlaneta()==pl.getIdPlaneta()){
-						System.out.println(navB.toString());
+					System.out.println(pl.toString());
+					for(NaveEspacial navB: this.universo.getLnavesB()){
+						if(navB.getIdPlaneta()==pl.getIdPlaneta()){
+							cantNB++;
+							//System.out.println(navB.toString());
+						}
 					}
-				}
-				for(NaveEspacial navD: this.universo.getLnavesD()){
-					if(navD.getIdPlaneta()==pl.getIdPlaneta()){
-						System.out.println(navD.toString());
+					for(NaveEspacial navD: this.universo.getLnavesD()){
+						if(navD.getIdPlaneta()==pl.getIdPlaneta()){
+							cantND++;
+							//System.out.println(navB.toString());
+						}
 					}
-				}
-				for(NaveEspacial navTC: this.universo.getLnavesTC()){
-					if(navTC.getIdPlaneta()==pl.getIdPlaneta()){
-						System.out.println(navTC.toString());
+					for(NaveEspacial navTC: this.universo.getLnavesTC()){
+						if(navTC.getIdPlaneta()==pl.getIdPlaneta()){
+							cantNTC++;
+							//System.out.println(navTC.toString());
+						}
 					}
+					if(cantNB!=0)
+					System.out.println(cantNB + " Nave/s Batalla");
+					if(cantND!=0)
+					System.out.println(cantND + " Nave/s Destructora");
+					if(cantNTC!=0)
+					System.out.println(cantNTC + " Nave/s Colonizadora/Transportadora");
 				}
-			}
 			}
 		}
 		System.out.println("********************************************");
