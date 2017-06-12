@@ -10,7 +10,7 @@ public class Programa {
 		// TODO Auto-generated method stub
 		Universo universo = new Universo ();
 		VistaConsola vista = new VistaConsola(universo);
-		ControladorTurno controlador = new ControladorTurno (universo, 3);
+		ControladorTurno controlador = new ControladorTurno (universo);
 		universo.registrarObservador(vista);
 		//Se crean los 2 usuarios de juego
 		for(int i=0; i<2;i++){
@@ -22,7 +22,6 @@ public class Programa {
 		vista.inicioJuego();
 
 		while(universo.isJuegoFinalizado()){
-			vista.inicioJuego();
 			vista.menuAcciones();
 			controlador.Ejecutar();
 		}

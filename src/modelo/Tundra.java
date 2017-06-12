@@ -9,7 +9,7 @@ public class Tundra extends Planeta{
 
 	public String toString() {
 		// TODO Auto-generated method stub
-		return"El Planeta " + this.nombre + " es una tundra con " + this.poblacion + " habitantes. Su dueño es " + getIdOwner();
+		return"El Planeta " + this.nombre + " es una tundra con " + this.poblacion + " habitantes. Su duenio es " + getIdOwner() + ". Ademas Las siguientes naves estan en su orbita: ";
 	}
 
 	public void avanzarTurno(){

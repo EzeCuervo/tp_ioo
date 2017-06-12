@@ -13,8 +13,8 @@ public class NaveTC extends NaveEspacial{
 		this.poblacion=integrantes;
 	}
 	
-	public void colonizar(Planeta planeta, int integrantes){
-		planeta.setPoblacion(integrantes);
+	public void colonizar(Planeta planeta){
+		planeta.setPoblacion(this.poblacion);
 		planeta.setIdOwner(idOwner);
 		this.poblacion=0;
 	}
@@ -23,6 +23,17 @@ public class NaveTC extends NaveEspacial{
 	public void atacarNave(Planeta planeta) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public void viajar(Planeta destino) {
+		
+				
+				// TODO Auto-generated method stub
+		
+	}
+	public String toString() {
+		// TODO Auto-generated method stub
+		return"Nave de Transportadora/Colonizadora";
 	}
 
 }

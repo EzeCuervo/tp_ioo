@@ -30,30 +30,6 @@ public class Jugador extends ElementoDelJuego{
 		return lplanetas;
 	}
 	
-	public void prodNaveB(Planeta planeta){
-		planeta.prodNaveB();
-	}
-	public void prodNaveD(Planeta planeta){
-		planeta.prodNaveD();
-	}
-	public void prodNaveTC(Planeta planeta){
-		planeta.prodNaveTC();
-	}
-	public void prodTorreta(Planeta planeta){
-		planeta.construirTorretas();
-	}
-	public void mejorarProdPlaneta(Planeta planeta){
-		planeta.mejorarPlaneta();
-	}
-	public void atacarPlaneta(Planeta planeta1, Planeta planeta2){
-		
-	}
-	public void colonizarPlaneta(Planeta origen, Planeta destino, int integrantes){
-		origen.getNaveTC(getLnaves()).agregarIntegrantes(integrantes);
-		origen.viajarColonizar(destino,origen.getNaveTC(getLnaves()));
-		//origen.getNaveTC(getLnaves()).colonizar(destino, integrantes);
-	}
-
 	public List<NaveEspacial> getLnaves() {
 		return lnaves;
 	}
@@ -69,6 +45,10 @@ public class Jugador extends ElementoDelJuego{
 			}
 		}
 		return null;
+	}
+	public String toString() {
+		// TODO Auto-generated method stub
+		return"El Jugador " + this.nombre + " posee: ";
 	}
 }
 

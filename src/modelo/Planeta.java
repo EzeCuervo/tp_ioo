@@ -14,13 +14,9 @@ public abstract class Planeta extends ElementoDelJuego {
 	private int tpvc=2;
 	protected int poblacion;
 	protected String nombre;
-	protected String atacado;
 	protected int idOwner;
 	protected int idPlaneta;
 	protected int cantidadTorretas;
-	protected int cantidadNaveB;
-	protected int cantidadNaveD;
-	protected int cantidadNaveTC;
 	protected int cantTurnosTor = tpt;
 	protected int cantTurnosNB = tpcnb;
 	protected int cantTurnosND = tpcnd;
@@ -31,7 +27,6 @@ public abstract class Planeta extends ElementoDelJuego {
 	private List<NaveEspacial> lnavesB = new ArrayList<NaveEspacial>();
 	private List<NaveEspacial> lnavesD = new ArrayList<NaveEspacial>();
 	private List<NaveEspacial> lnavesTC = new ArrayList<NaveEspacial>();
-	private List<NaveEspacial> lnavesViaje = new ArrayList<NaveEspacial>();
 	private List<Torreta> ltorretas = new ArrayList<Torreta>();
 	protected boolean construyendoTorretas = false;
 	protected boolean construyendoNaveB = false;
@@ -61,15 +56,6 @@ public abstract class Planeta extends ElementoDelJuego {
 	public void construirTorretas(){
 		this.construyendoTorretas = true;
 	}
-	public int getCantidadNaveB(){
-		return this.cantidadNaveB;
-	}
-	public int getCantidadNaveD(){
-		return this.cantidadNaveD;
-	}
-	public int getCantidadNaveTC(){
-		return this.cantidadNaveTC;
-	}
 	public void prodNaveB(){
 		this.construyendoNaveB = true;
 	}
@@ -83,32 +69,12 @@ public abstract class Planeta extends ElementoDelJuego {
 		this.mejorandoProduccion = true;
 		
 	}
-	public void viajarAtacar(Planeta planeta){
-		enViajeDeAtaque = true;
-		this.atacado=planeta.nombre;
-		
-	}
-	public void viajarColonizar(Planeta planeta, NaveTC nave){
-		enViajeAColonizar = true;
-		nave.setIdPlanetaDest(planeta.getIdPlaneta());
-		this.lnavesViaje.add(nave);
-		this.lnavesTC.remove(nave);
-	}
-	
-	
+
 	public void avanzarTurno() {
 		// TODO Auto-generated method stub
 		super.avanzarTurno();
-		if(this.enViajeDeAtaque){
-			if(cantTurnosVA==0){
-				for(NaveEspacial nav: lnavesB){
-					//nav.atacarNave();
-				}
-			}
-		}
 		if(this.construyendoTorretas){
 			if(cantTurnosTor==0){
-				this.cantidadTorretas = this.cantidadTorretas + 1;
 				Torreta tor = new Torreta();
 				this.ltorretas.add(tor);
 				this.construyendoTorretas=false;
@@ -120,7 +86,6 @@ public abstract class Planeta extends ElementoDelJuego {
 		}
 		if(this.construyendoNaveB){
 			if(cantTurnosNB==0){
-				this.cantidadNaveB = this.cantidadNaveB + 1;
 				NaveEspacial nav = new NaveB(getIdOwner(), getIdPlaneta());
 				this.lnavesB.add(nav);
 				this.construyendoNaveB=false;
@@ -147,7 +112,6 @@ public abstract class Planeta extends ElementoDelJuego {
 		}
 		if(this.construyendoNaveD){
 			if(cantTurnosND==0){
-				this.cantidadNaveD = this.cantidadNaveD + 1;
 				NaveEspacial nav = new NaveD(getIdOwner(), getIdPlaneta());
 				this.lnavesD.add(nav);
 				this.construyendoNaveD=false;
@@ -158,7 +122,6 @@ public abstract class Planeta extends ElementoDelJuego {
 		}
 		if(this.construyendoNaveTC){
 			if(cantTurnosNTC==0){
-				this.cantidadNaveTC = this.cantidadNaveTC + 1;
 				NaveEspacial nav = new NaveTC(getIdOwner(), getIdPlaneta());
 				this.lnavesTC.add(nav);
 				this.construyendoNaveTC=false;
@@ -168,17 +131,6 @@ public abstract class Planeta extends ElementoDelJuego {
 			}
 		}
 		
-		if(this.enViajeAColonizar){
-			for(NaveTC naveTC : lnavesTC){
-			if(cantTurnosVC==0){
-				getNaveTC(lnavesViaje).colonizar(getNaveTC(lnavesViaje).getIdPlanetaDest(), integrantes);
-				getNaveTC(lnavesTC).colonizar(planeta, integrantes);
-				this.enViajeAColonizar=false;
-			} else{
-				this.cantTurnosVC--;
-			}
-			}
-		}
 	}
 	
 	public int getPoblacion() {
@@ -224,7 +176,7 @@ public abstract class Planeta extends ElementoDelJuego {
 	public void setPoblacion(int poblacion) {
 		this.poblacion = poblacion;
 	}
-	public NaveTC getNaveTC(List<NaveEspacial> lnavesTC){
+	public NaveTC getNaveTC(){
 		return (NaveTC) lnavesTC.get(0);
 		
 	}

@@ -20,5 +20,13 @@ public class NaveD extends NaveEspacial {
 		// TODO Auto-generated method stub
 		
 	}
+	public void viajar(Planeta destino) {
+		// TODO Auto-generated method stub
+		
+	}
+	public String toString() {
+		// TODO Auto-generated method stub
+		return"Nave de Destructora";
+	}
 
 }
