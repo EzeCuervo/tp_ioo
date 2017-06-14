@@ -18,6 +18,8 @@ public abstract class NaveEspacial extends ElementoDelJuego{
 		if(this.enTransito){
 			if(falta==0){
 				this.idPlaneta=this.idPlanetaDest;
+				this.enTransito=false;
+				this.idPlaneta=-1;
 			}else{
 				this.falta--;
 				this.idPlaneta=-1;

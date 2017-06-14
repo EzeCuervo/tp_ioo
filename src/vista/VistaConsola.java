@@ -106,6 +106,19 @@ public class VistaConsola implements IObservador{
 			}
 		}
 	}
-
+	public void juegoFinalizado(){
+		System.out.println("********************************************");
+		System.out.println("Juego Finalizado!");
+		System.out.println("********************************************");
+		for(Jugador j: this.universo.getJugadores()){
+			System.out.println("Jugador: " + j.getNombre().toString());
+			for(Planeta pl : universo.getLplanetas()){
+				if(j.getIdJugador()==pl.getIdOwner())
+				System.out.println("Tiene el planeta " + pl.getNombre());
+			}
+		}
+	}
 }
+
+
 

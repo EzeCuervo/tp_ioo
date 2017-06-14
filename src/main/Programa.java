@@ -21,10 +21,11 @@ public class Programa {
 		universo.incializarUniverso();
 		vista.inicioJuego();
 
-		while(universo.isJuegoFinalizado()){
+		while(!universo.isJuegoFinalizado()){
 			vista.menuAcciones();
 			controlador.Ejecutar();
 		}
+		vista.juegoFinalizado();
 
 		//vista.leerJugadores();
 		//controlador.Ejecutar();

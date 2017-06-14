@@ -3,7 +3,7 @@ package modelo;
 import java.util.*;
 
 public class Universo extends ElementoDelJuego {
-	private boolean juegoFinalizado=true;
+	private boolean juegoFinalizado;
 	private List <Planeta> lplanetas;
 	private List <Jugador> jugadores;
 	private List<NaveEspacial> lnavesB;
@@ -52,7 +52,14 @@ public class Universo extends ElementoDelJuego {
 				if(!j.getLplanetas().contains(planeta) && j.getIdJugador()==planeta.getIdOwner()){
 					asignarPlaneta(planeta, j.getIdJugador(), planeta.getPoblacion());
 				}
+				
 			}
+		}
+		for(Jugador j : jugadores){
+			if(j.getLplanetas().size()==3){
+				setJuegoFinalizado(true);
+			}
+			
 		}
 		this.actualizarObservadores();
 	}
@@ -109,6 +116,7 @@ public class Universo extends ElementoDelJuego {
 	}
 	
 	public void incializarUniverso(){
+		this.juegoFinalizado=false;
 		// Se crean 4 planetas
 		Planeta tierra = new Terrestre("Tierra");
 		Planeta marte = new  Terrestre("Marte");
