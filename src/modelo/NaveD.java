@@ -10,16 +10,20 @@ public class NaveD extends NaveEspacial {
 		
 	}
 	public void atacarPlaneta(Planeta planeta){
+		if(planeta.poblacion>=0){
 		planeta.poblacion=planeta.poblacion-damPob;
+		}
+		if(planeta.cantidadTorretas>=0){
 		planeta.cantidadTorretas=planeta.cantidadTorretas-1;
+		}
 		
 		
+	}
+	public void agregarIntegrantes(int integrantes){
+		this.poblacion=integrantes;
 	}
 	@Override
-	public void atacarNave(Planeta planeta) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	public void viajar(Planeta destino) {
 		// TODO Auto-generated method stub
 		
@@ -27,6 +31,11 @@ public class NaveD extends NaveEspacial {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return"Nave de Destructora";
+	}
+	@Override
+	public void atacarNaveB(NaveB nav) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

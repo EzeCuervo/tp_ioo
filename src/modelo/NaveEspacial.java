@@ -18,7 +18,7 @@ public abstract class NaveEspacial extends ElementoDelJuego{
 		return "Soy una nave que transita el espacio en";
 	}
 
-	public abstract void atacarNave(Planeta planeta);
+	public abstract void atacarNaveB(NaveB nav);
 	
 	public void avanzarTurno() {
 		super.avanzarTurno();

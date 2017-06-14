@@ -19,11 +19,6 @@ public class NaveTC extends NaveEspacial{
 		this.poblacion=0;
 	}
 
-	@Override
-	public void atacarNave(Planeta planeta) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public void viajar(Planeta destino) {
 		
@@ -34,6 +29,12 @@ public class NaveTC extends NaveEspacial{
 	public String toString() {
 		// TODO Auto-generated method stub
 		return"Nave de Transportadora/Colonizadora";
+	}
+
+	@Override
+	public void atacarNaveB(NaveB nav) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

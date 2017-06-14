@@ -31,6 +31,20 @@ public class Universo extends ElementoDelJuego {
 				}
 				pl.getLnavesTC().clear();
 			}
+			if(lnavesB.size()!=0){
+				for(NaveEspacial nav: lnavesB){
+					if(nav.getResistencia()<=0){
+						lnavesB.remove(nav);
+					}
+				}
+			}
+			if(lnavesD.size()!=0){
+				for(NaveEspacial nav: lnavesD){
+					if(nav.getResistencia()<=0){
+						lnavesD.remove(nav);
+					}
+				}
+			}
 		pl.avanzarTurno();
 		}
 		for(Planeta planeta : this.lplanetas){
@@ -129,12 +143,51 @@ public class Universo extends ElementoDelJuego {
 		}
 		return null;
 	}
+	public NaveB getNaveB(int idJugador){
+		for(NaveEspacial nav : lnavesTC){
+			if(nav.getIdOwner()==idJugador){
+				return (NaveB) nav;
+			}
+		}
+		return null;
+	}
+	public NaveD getNaveD(int idJugador){
+		for(NaveEspacial nav : lnavesTC){
+			if(nav.getIdOwner()==idJugador){
+				return (NaveD) nav;
+			}
+		}
+		return null;
+	}
+	
 	
 	public void mostrarNavesListasColonizar(Jugador j){
 		for(NaveEspacial nav: lnavesTC){
 			if(nav.getIdOwner()==j.getIdJugador()){
 				for(Planeta p: lplanetas){
 					if(p.idOwner==-1&&p.idPlaneta==nav.getIdPlaneta()){
+						System.out.println(getNombrePlaneta(p.idPlaneta));
+					}
+				}
+			}
+		}
+	}
+	public void mostrarNavesDeBatallaListasAtacar(Jugador j){
+		for(NaveEspacial nav: lnavesB){
+			if(nav.getIdOwner()==j.getIdJugador()){
+				for(Planeta p: lplanetas){
+					if(p.idOwner!=-1&&p.idPlaneta==nav.getIdPlaneta()&&p.idOwner!=j.getIdJugador()){
+						System.out.println(getNombrePlaneta(p.idPlaneta));
+					}
+				}
+			}
+		}
+	}
+	public void mostrarNavesDestructoraListasAtacar(Jugador j){
+		for(NaveEspacial nav: lnavesD){
+			if(nav.getIdOwner()==j.getIdJugador()){
+				for(Planeta p: lplanetas){
+					if(p.idOwner!=-1&&p.idPlaneta==nav.getIdPlaneta()&&p.idOwner!=j.getIdJugador()){
 						System.out.println(getNombrePlaneta(p.idPlaneta));
 					}
 				}
@@ -185,6 +238,14 @@ public class Universo extends ElementoDelJuego {
 			}
 		}
 	}
+	public void mostrarPlanetasUserEnemigo(Jugador j){
+		System.out.println("Planetas de tu enemigo:");
+		for(Planeta pl : getLplanetas()){
+			if(j.getIdJugador()!=pl.idOwner&&pl.idOwner!=-1){
+				System.out.println(pl.getNombre());
+			}
+		}
+	}
 	public void mostrarPlanetasSinUser(){
 		System.out.println("Planetas sin colonizar:");
 		for(Planeta pl : getLplanetas()){
@@ -205,6 +266,75 @@ public class Universo extends ElementoDelJuego {
 			}
 		}
 	}
+	public void mostrarPlanetasConNB(Jugador j){
+		System.out.println("Planetas con naves de batalla:");
+		for(NaveEspacial nav : lnavesB){
+			if(nav.getIdOwner()==j.getIdJugador()){
+				for(Planeta pl: getLplanetas()){
+					if(nav.getIdPlaneta()==pl.getIdPlaneta() && nav.getIdOwner()==pl.getIdOwner()){
+						System.out.println(pl.getNombre());
+					}
+				}
+			}
+		}
+	}
+	public void mostrarPlanetasConND(Jugador j){
+		System.out.println("Planetas con naves destructoras:");
+		for(NaveEspacial nav : lnavesD){
+			if(nav.getIdOwner()==j.getIdJugador()){
+				for(Planeta pl: getLplanetas()){
+					if(nav.getIdPlaneta()==pl.getIdPlaneta() && nav.getIdOwner()==pl.getIdOwner()){
+						System.out.println(pl.getNombre());
+					}
+				}
+			}
+		}
+	}
+	public void mostrarNavesBEnemigasEnOrbita(Jugador j){
+		System.out.println("Planetas con naves de batalla enemigas en orbita:");
+		for(NaveEspacial nav : lnavesB){
+			if(nav.getIdOwner()!=j.getIdJugador()){
+				for(Planeta pl: getLplanetas()){
+					if(nav.getIdPlaneta()==pl.getIdPlaneta() && nav.getIdOwner()!=pl.getIdOwner()){
+						System.out.println(pl.getNombre());
+					}
+				}
+			}
+		}
+	}
+	public void mostrarNavesDEnemigasEnOrbita(Jugador j){
+		System.out.println("Planetas con naves destructoras enemigas en orbita:");
+		for(NaveEspacial nav : lnavesD){
+			if(nav.getIdOwner()!=j.getIdJugador()){
+				for(Planeta pl: getLplanetas()){
+					if(nav.getIdPlaneta()==pl.getIdPlaneta() && nav.getIdOwner()!=pl.getIdOwner()){
+						System.out.println(pl.getNombre());
+					}
+				}
+			}
+		}
+	}
+	public NaveB mostrarNavesBEnemigasTorreteables(Planeta p){
+		System.out.println("Planetas con naves de batalla enemigas en orbita:");
+		for(NaveEspacial nav: lnavesB){
+			if(nav.getIdOwner()!=p.getIdOwner()&&nav.getIdPlaneta()==p.getIdPlaneta()){
+				return (NaveB) nav;
+			}
+		}
+		return null;
+		
+	}
+	public NaveD mostrarNavesDEnemigasTorreteables(Planeta p){
+		System.out.println("Planetas con naves destructoras enemigas en orbita:");
+		for(NaveEspacial nav: lnavesD){
+			if(nav.getIdOwner()!=p.getIdOwner()&&nav.getIdPlaneta()==p.getIdPlaneta()){
+				return (NaveD) nav;
+			}
+		}
+		return null;
+		
+	}
+	
 	
 }
 

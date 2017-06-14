@@ -132,6 +132,16 @@ public abstract class Planeta extends ElementoDelJuego {
 		}
 		
 	}
+	public Torreta getTorreta(){
+		for(Torreta tor : ltorretas){
+			if(ltorretas.size()!=0){
+				return (Torreta) tor;
+			}else{
+				System.out.println("Este planeta no posee torretas para defenderse");
+			}
+		}
+		return null;
+	}
 	
 	public int getPoblacion() {
 		return this.poblacion;

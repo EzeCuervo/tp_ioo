@@ -79,6 +79,8 @@ public class VistaConsola implements IObservador{
 		System.out.println("9  - Colonizar Planeta");
 		System.out.println("10 - Atacar Nave");
 		System.out.println("11 - Atacar Planeta");
+		System.out.println("12 - Atacar Nave Batalla con Torreta");
+		System.out.println("13 - Atacar Nave Destructora con Torreta");
 		System.out.println("Seleccione una opcion:");
 
 	}

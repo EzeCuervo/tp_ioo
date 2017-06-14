@@ -96,6 +96,38 @@ public class ControladorTurno {
 				//Hago viajar a la nave al planeta destino
 				universo.getNaveTC(j.getIdJugador()).viajar(universo.getPlaneta(stringLeido2));
 				break;
+			case 7:
+				//Viaje Nave Batalla
+				universo.mostrarPlanetasUserEnemigo(j);
+				System.out.println("Ingrese el nombre del planeta de su enemigo al que quiere enviar una nave de batalla");
+				leerString();
+				universo.mostrarPlanetasConNB(j);
+				System.out.println("Ingrese planeta de donde sale la nave de batalla");
+				leerString2();
+				System.out.println("Ingrese la cantidad de integrantes de la nave de batalla (MIN 1 - MAX " + universo.getPlaneta(stringLeido2).getPoblacion() + ")");
+				leerOpcion();
+				//Agrego los tripulantes
+				universo.getNaveB(j.getIdJugador()).agregarIntegrantes(opcion);
+				j.getPlaneta(stringLeido2).setPoblacion(j.getPlaneta(stringLeido2).getPoblacion()-opcion);
+				//Hago viajar a la nave al planeta destino
+				universo.getNaveB(j.getIdJugador()).viajar(universo.getPlaneta(stringLeido2));
+				break;
+			case 8:
+				//Viaje Nave Destructora
+				universo.mostrarPlanetasUserEnemigo(j);
+				System.out.println("Ingrese el nombre del planeta de su enemigo al que quiere enviar una nave destructora");
+				leerString();
+				universo.mostrarPlanetasConND(j);
+				System.out.println("Ingrese planeta de donde sale la nave de destructora");
+				leerString2();
+				System.out.println("Ingrese la cantidad de integrantes de la nave destructora (MIN 1 - MAX " + universo.getPlaneta(stringLeido2).getPoblacion() + ")");
+				leerOpcion();
+				//Agrego los tripulantes
+				universo.getNaveD(j.getIdJugador()).agregarIntegrantes(opcion);
+				j.getPlaneta(stringLeido2).setPoblacion(j.getPlaneta(stringLeido2).getPoblacion()-opcion);
+				//Hago viajar a la nave al planeta destino
+				universo.getNaveD(j.getIdJugador()).viajar(universo.getPlaneta(stringLeido2));
+				break;
 			case 9:
 				//Colonizar
 				universo.mostrarNavesListasColonizar(j);
@@ -104,6 +136,38 @@ public class ControladorTurno {
 				universo.getNaveTC(j.getIdJugador()).colonizar(universo.getPlaneta(stringLeido));
 				universo.getLnavesTC().remove(universo.getNaveTC(j.getIdJugador()));	
 				break;
+			case 10:
+				//Nave B ataca Nave B
+				universo.mostrarNavesDeBatallaListasAtacar(j);
+				System.out.println("Elija el planeta cuyas naves de batalla quiere atacar");
+				leerString();
+				universo.getNaveB(j.getIdJugador()).atacarNaveB(universo.getNaveB(universo.getPlaneta(stringLeido).getIdOwner()));
+				break;
+			case 11:
+				//Nave D ataca Planeta
+				universo.mostrarNavesDestructoraListasAtacar(j);
+				System.out.println("Elija el planeta que desea atacar");
+				leerString();
+				universo.getNaveD(j.getIdJugador()).atacarPlaneta(universo.getPlaneta(stringLeido));
+				break;
+			case 12:
+				//Torreta ataca Nave B
+				universo.mostrarNavesBEnemigasEnOrbita(j);
+				System.out.println("Elija el planeta que desea defender");
+				leerString();
+				universo.getPlaneta(stringLeido).getTorreta().atacarNaveB(universo.mostrarNavesBEnemigasTorreteables(universo.getPlaneta(stringLeido)));
+				break;
+			case 13:
+				//Torreta ataca Nave D
+				universo.mostrarNavesBEnemigasEnOrbita(j);
+				System.out.println("Elija el planeta que desea defender");
+				leerString();
+				universo.getPlaneta(stringLeido).getTorreta().atacarNaveD(universo.mostrarNavesDEnemigasTorreteables(universo.getPlaneta(stringLeido)));
+				break;
+			default:
+				System.out.println("La opcion seleccionada no existe en el menu, trate otra vez: ");
+				leerOpcion();
+				break;	
 			}
 			this.universo.avanzarTurno();
 			}
