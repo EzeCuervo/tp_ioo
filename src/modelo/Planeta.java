@@ -103,10 +103,18 @@ public abstract class Planeta extends ElementoDelJuego {
 		}
 		if(this.mejorandoProduccion){
 			if(cantTurnosMP==0){
+				if(this.tpt > 1){
 				this.tpt= tpt - 1;
+				}
+				if(this.tpcnb > 1){
 				this.tpcnb=tpcnb - 1;
+				}
+				if(this.tpcnd > 1){
 				this.tpcnd= tpcnd - 1;
+				}
+				if(this.tpcntc > 1){
 				this.tpcntc= tpcnd - 1;
+				}
 				this.cantTurnosTor = tpt;
 				this.cantTurnosNB = tpcnb;
 				this.cantTurnosND = tpcnd;
