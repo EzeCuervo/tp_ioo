@@ -173,7 +173,7 @@ public class Universo extends ElementoDelJuego {
 		for(NaveEspacial nav: lnavesTC){
 			if(nav.getIdOwner()==j.getIdJugador()){
 				for(Planeta p: lplanetas){
-					if(p.idOwner==-1&&p.idPlaneta==nav.getIdPlaneta()){
+					if(p.idOwner==-1 && p.idPlaneta==nav.getIdPlaneta()){
 						System.out.println(getNombrePlaneta(p.idPlaneta));
 					}
 				}

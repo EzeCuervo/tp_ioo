@@ -2,7 +2,7 @@ package modelo;
 
 public abstract class NaveEspacial extends ElementoDelJuego{
 	protected static int tiempoDeViaje=1;
-	protected int falta=tiempoDeViaje;
+	protected int falta;
 	protected int idOwner;
 	protected int idPlaneta;
 	protected int idPlanetaDest;
@@ -51,6 +51,7 @@ public abstract class NaveEspacial extends ElementoDelJuego{
 		this.idOwner=idOwner;
 		this.idPlaneta=idPlaneta;
 		this.idPlanetaDest=-1;
+		this.falta=tiempoDeViaje;
 		this.enTransito=false;
 
 	}

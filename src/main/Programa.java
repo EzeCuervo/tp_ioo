@@ -12,6 +12,7 @@ public class Programa {
 		VistaConsola vista = new VistaConsola(universo);
 		ControladorTurno controlador = new ControladorTurno (universo);
 		universo.registrarObservador(vista);
+		
 		//Se crean los 2 usuarios de juego
 		for(int i=0; i<2;i++){
 			vista.mostrarInsertarNombreJugador();
@@ -19,16 +20,17 @@ public class Programa {
 		}
 		//Se crean los planetas y se asigna 1 a cada jugador
 		universo.incializarUniverso();
+		
+		//Pantalla de inicio
 		vista.inicioJuego();
 
 		while(!universo.isJuegoFinalizado()){
 			vista.menuAcciones();
 			controlador.Ejecutar();
 		}
+		
+		//Pantalla de fin de juego
 		vista.juegoFinalizado();
-
-		//vista.leerJugadores();
-		//controlador.Ejecutar();
 
 	}
 }
