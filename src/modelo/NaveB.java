@@ -14,10 +14,6 @@ public class NaveB extends NaveEspacial {
 		}
 	}
 
-	public void viajar(Planeta destino) {
-		// TODO Auto-generated method stub
-		
-	}
 	public String toString() {
 		// TODO Auto-generated method stub
 		return"Nave de Batalla";

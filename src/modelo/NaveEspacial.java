@@ -5,25 +5,19 @@ public abstract class NaveEspacial extends ElementoDelJuego{
 	protected int falta=tiempoDeViaje;
 	protected int idOwner;
 	protected int idPlaneta;
-	protected int idPlanetaDestino;
+	protected int idPlanetaDest;
 	protected int resistencia;
 	protected int damNav;
 	protected int damPob;
-	protected int idPlanetaDest;
-	private boolean enTransito = false;
+	private boolean enTransito;
 	
-	public String toString() {
-		// TODO Auto-generated method stub
-		return "Soy una nave que transita el espacio en";
-	}
-
-	public abstract void atacarNaveB(NaveB nav);
+	public abstract String toString();
 	
 	public void avanzarTurno() {
 		super.avanzarTurno();
 		if(this.enTransito){
 			if(falta==0){
-				this.idPlaneta=this.idPlanetaDestino;
+				this.idPlaneta=this.idPlanetaDest;
 			}else{
 				this.falta--;
 				this.idPlaneta=-1;
@@ -55,16 +49,13 @@ public abstract class NaveEspacial extends ElementoDelJuego{
 		this.idOwner=idOwner;
 		this.idPlaneta=idPlaneta;
 		this.idPlanetaDest=-1;
+		this.enTransito=false;
 
 	}
 
 
 	public int getIdPlanetaDest() {
 		return idPlanetaDest;
-	}
-
-	public void setIdPlanetaDest(int idPlanetaDest) {
-		this.idPlanetaDest = idPlanetaDest;
 	}
 
 	public int getResistencia() {
@@ -77,7 +68,6 @@ public abstract class NaveEspacial extends ElementoDelJuego{
 	}
 
 
-
 	public int getDamNav() {
 		return damNav;
 	}
@@ -87,10 +77,13 @@ public abstract class NaveEspacial extends ElementoDelJuego{
 		this.damNav = damNav;
 	}
 
+	public boolean isEnTransito() {
+		return enTransito;
+	}
 
 	public void viajar(Planeta destino){
 		this.enTransito=true;
-		this.idPlanetaDestino=destino.getIdPlaneta();
+		this.idPlanetaDest=destino.getIdPlaneta();
 	}
 	
 }

@@ -25,17 +25,26 @@ public class VistaConsola implements IObservador{
 							cantNB++;
 							//System.out.println(navB.toString());
 						}
+						if(navB.isEnTransito()){
+							System.out.println("Nave Batalla esta viajando a " + universo.getNombrePlaneta(navB.getIdPlanetaDest()));
+						}
 					}
 					for(NaveEspacial navD: this.universo.getLnavesD()){
 						if(navD.getIdPlaneta()==pl.getIdPlaneta()){
 							cantND++;
 							//System.out.println(navB.toString());
 						}
+						if(navD.isEnTransito()){
+							System.out.println("Nave Destructora esta viajando a " + universo.getNombrePlaneta(navD.getIdPlanetaDest()));
+						}
 					}
 					for(NaveEspacial navTC: this.universo.getLnavesTC()){
 						if(navTC.getIdPlaneta()==pl.getIdPlaneta()){
 							cantNTC++;
 							//System.out.println(navTC.toString());
+						}
+						if(navTC.isEnTransito()){
+							System.out.println("Nave Transporte/Colonizadora esta viajando a " + universo.getNombrePlaneta(navTC.getIdPlanetaDest()));
 						}
 					}
 					if(cantNB!=0)
