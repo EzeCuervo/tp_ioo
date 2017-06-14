@@ -104,11 +104,6 @@ public class ControladorTurno {
 				universo.mostrarPlanetasConNB(j);
 				System.out.println("Ingrese planeta de donde sale la nave de batalla");
 				leerString2();
-				System.out.println("Ingrese la cantidad de integrantes de la nave de batalla (MIN 1 - MAX " + universo.getPlaneta(stringLeido2).getPoblacion() + ")");
-				leerOpcion();
-				//Agrego los tripulantes
-				universo.getNaveB(j.getIdJugador()).agregarIntegrantes(opcion);
-				j.getPlaneta(stringLeido2).setPoblacion(j.getPlaneta(stringLeido2).getPoblacion()-opcion);
 				//Hago viajar a la nave al planeta destino
 				universo.getNaveB(j.getIdJugador()).viajar(universo.getPlaneta(stringLeido2));
 				break;
@@ -120,11 +115,6 @@ public class ControladorTurno {
 				universo.mostrarPlanetasConND(j);
 				System.out.println("Ingrese planeta de donde sale la nave de destructora");
 				leerString2();
-				System.out.println("Ingrese la cantidad de integrantes de la nave destructora (MIN 1 - MAX " + universo.getPlaneta(stringLeido2).getPoblacion() + ")");
-				leerOpcion();
-				//Agrego los tripulantes
-				universo.getNaveD(j.getIdJugador()).agregarIntegrantes(opcion);
-				j.getPlaneta(stringLeido2).setPoblacion(j.getPlaneta(stringLeido2).getPoblacion()-opcion);
 				//Hago viajar a la nave al planeta destino
 				universo.getNaveD(j.getIdJugador()).viajar(universo.getPlaneta(stringLeido2));
 				break;

@@ -6,7 +6,6 @@ public class NaveD extends NaveEspacial {
 		this.damNav=0;
 		this.damPob=5;
 		this.resistencia=5000;
-		this.poblacion=80;
 		
 	}
 	public void atacarPlaneta(Planeta planeta){
@@ -17,12 +16,7 @@ public class NaveD extends NaveEspacial {
 		planeta.cantidadTorretas=planeta.cantidadTorretas-1;
 		}
 		
-		
 	}
-	public void agregarIntegrantes(int integrantes){
-		this.poblacion=integrantes;
-	}
-	@Override
 
 	public void viajar(Planeta destino) {
 		// TODO Auto-generated method stub

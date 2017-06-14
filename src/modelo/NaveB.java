@@ -6,7 +6,6 @@ public class NaveB extends NaveEspacial {
 		this.damNav=500;
 		this.damPob=0;
 		this.resistencia=3500;
-		this.poblacion=50;
 		
 	}
 	public void atacarNaveB(NaveB nav){
@@ -14,9 +13,7 @@ public class NaveB extends NaveEspacial {
 		nav.resistencia=nav.resistencia-damNav;
 		}
 	}
-	public void agregarIntegrantes(int integrantes){
-		this.poblacion=integrantes;
-	}
+
 	public void viajar(Planeta destino) {
 		// TODO Auto-generated method stub
 		

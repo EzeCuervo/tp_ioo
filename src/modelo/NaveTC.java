@@ -1,6 +1,8 @@
 package modelo;
 
 public class NaveTC extends NaveEspacial{
+	private int poblacion;
+
 	public NaveTC(int idOwner, int idPlaneta){
 		super(idOwner, idPlaneta);
 		this.damNav=0;
@@ -21,11 +23,10 @@ public class NaveTC extends NaveEspacial{
 
 
 	public void viajar(Planeta destino) {
-		
-				
-				// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
 		
 	}
+	
 	public String toString() {
 		// TODO Auto-generated method stub
 		return"Nave de Transportadora/Colonizadora";

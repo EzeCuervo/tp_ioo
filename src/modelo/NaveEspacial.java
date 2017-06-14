@@ -9,7 +9,6 @@ public abstract class NaveEspacial extends ElementoDelJuego{
 	protected int resistencia;
 	protected int damNav;
 	protected int damPob;
-	protected int poblacion;
 	protected int idPlanetaDest;
 	private boolean enTransito = false;
 	

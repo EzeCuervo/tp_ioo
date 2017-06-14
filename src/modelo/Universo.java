@@ -144,7 +144,7 @@ public class Universo extends ElementoDelJuego {
 		return null;
 	}
 	public NaveB getNaveB(int idJugador){
-		for(NaveEspacial nav : lnavesTC){
+		for(NaveEspacial nav : lnavesB){
 			if(nav.getIdOwner()==idJugador){
 				return (NaveB) nav;
 			}
@@ -152,7 +152,7 @@ public class Universo extends ElementoDelJuego {
 		return null;
 	}
 	public NaveD getNaveD(int idJugador){
-		for(NaveEspacial nav : lnavesTC){
+		for(NaveEspacial nav : lnavesD){
 			if(nav.getIdOwner()==idJugador){
 				return (NaveD) nav;
 			}
