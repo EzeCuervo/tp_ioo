@@ -25,7 +25,7 @@ public class VistaConsola implements IObservador{
 							cantNB++;
 							//System.out.println(navB.toString());
 						}
-						if(navB.isEnTransito()){
+						if(navB.isEnTransito() && navB.getIdOwner()==j.getIdJugador()){
 							System.out.println("Nave Batalla esta viajando a " + universo.getNombrePlaneta(navB.getIdPlanetaDest()));
 						}
 					}
@@ -34,7 +34,7 @@ public class VistaConsola implements IObservador{
 							cantND++;
 							//System.out.println(navB.toString());
 						}
-						if(navD.isEnTransito()){
+						if(navD.isEnTransito() && navD.getIdOwner()==j.getIdJugador()){
 							System.out.println("Nave Destructora esta viajando a " + universo.getNombrePlaneta(navD.getIdPlanetaDest()));
 						}
 					}
@@ -43,7 +43,7 @@ public class VistaConsola implements IObservador{
 							cantNTC++;
 							//System.out.println(navTC.toString());
 						}
-						if(navTC.isEnTransito()){
+						if(navTC.isEnTransito() && navTC.getIdOwner()==j.getIdJugador()){
 							System.out.println("Nave Transporte/Colonizadora esta viajando a " + universo.getNombrePlaneta(navTC.getIdPlanetaDest()));
 						}
 					}
