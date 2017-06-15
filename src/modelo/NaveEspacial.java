@@ -1,7 +1,7 @@
 package modelo;
 
 public abstract class NaveEspacial extends ElementoDelJuego{
-	protected static int tiempoDeViaje=1;
+	protected static int tiempoDeViaje=2;
 	protected int falta;
 	protected int idOwner;
 	protected int idPlaneta;

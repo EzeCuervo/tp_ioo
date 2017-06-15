@@ -90,10 +90,10 @@ public class ControladorTurno {
 				System.out.println("Ingrese la cantidad de integrantes de la nave colonizadora (MIN 1 - MAX " + universo.getPlaneta(stringLeido2).getPoblacion() + ")");
 				leerOpcion();
 				//Agrego los tripulantes
-				universo.getNaveTC(j.getIdJugador(), universo.getPlaneta(stringLeido).getIdPlaneta()).agregarIntegrantes(opcion);
+				universo.getNaveTC(j.getIdJugador(), universo.getPlaneta(stringLeido2).getIdPlaneta()).agregarIntegrantes(opcion);
 				j.getPlaneta(stringLeido2).setPoblacion(j.getPlaneta(stringLeido2).getPoblacion()-opcion);
 				//Hago viajar a la nave al planeta destino
-				universo.getNaveTC(j.getIdJugador(), universo.getPlaneta(stringLeido).getIdPlaneta()).viajar(universo.getPlaneta(stringLeido2));
+				universo.getNaveTC(j.getIdJugador(), universo.getPlaneta(stringLeido2).getIdPlaneta()).viajar(universo.getPlaneta(stringLeido));
 				break;
 			case 7:
 				//Viaje Nave Batalla

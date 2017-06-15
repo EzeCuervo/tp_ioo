@@ -201,9 +201,5 @@ public abstract class Planeta extends ElementoDelJuego {
 	public void setPoblacion(int poblacion) {
 		this.poblacion = poblacion;
 	}
-	public NaveTC getNaveTC(){
-		return (NaveTC) lnavesTC.get(0);
-		
-	}
 
 }

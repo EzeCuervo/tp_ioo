@@ -15,9 +15,9 @@ public class NaveTC extends NaveEspacial{
 		this.poblacion=integrantes;
 	}
 	
-	public void colonizar(Planeta planeta){
-		planeta.setPoblacion(this.poblacion);
-		planeta.setIdOwner(idOwner);
+	public void colonizar(Planeta destino){
+		destino.setPoblacion(this.poblacion);
+		destino.setIdOwner(this.idOwner);
 		this.poblacion=0;
 	}
 

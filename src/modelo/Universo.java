@@ -47,8 +47,8 @@ public class Universo extends ElementoDelJuego {
 			}
 		pl.avanzarTurno();
 		}
+		for(Jugador j : jugadores){
 		for(Planeta planeta : this.lplanetas){
-			for(Jugador j : jugadores){
 				if(!j.getLplanetas().contains(planeta) && j.getIdJugador()==planeta.getIdOwner()){
 					asignarPlaneta(planeta, j.getIdJugador(), planeta.getPoblacion());
 				}
@@ -143,25 +143,28 @@ public class Universo extends ElementoDelJuego {
 	public List<Planeta> getLplanetas() {
 		return lplanetas;
 	}
-	public NaveTC getNaveTC(int idJugador){
+	public NaveTC getNaveTC(int idJugador, int idPlaneta){
 		for(NaveEspacial nav : lnavesTC){
-			if(nav.getIdOwner()==idJugador){
+			if(nav.getIdOwner()==idJugador && nav.getIdPlaneta()==idPlaneta){
+				return (NaveTC) nav;
+			}
+			if(nav.getIdOwner()==idJugador && nav.getIdPlaneta()!=idPlaneta){
 				return (NaveTC) nav;
 			}
 		}
 		return null;
 	}
-	public NaveB getNaveB(int idJugador){
+	public NaveB getNaveB(int idJugador, int idPlaneta){
 		for(NaveEspacial nav : lnavesB){
-			if(nav.getIdOwner()==idJugador){
+			if(nav.getIdOwner()==idJugador && nav.getIdPlaneta()==idPlaneta){
 				return (NaveB) nav;
 			}
 		}
 		return null;
 	}
-	public NaveD getNaveD(int idJugador){
+	public NaveD getNaveD(int idJugador, int idPlaneta){
 		for(NaveEspacial nav : lnavesD){
-			if(nav.getIdOwner()==idJugador){
+			if(nav.getIdOwner()==idJugador && nav.getIdPlaneta()==idPlaneta){
 				return (NaveD) nav;
 			}
 		}
