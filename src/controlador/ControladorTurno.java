@@ -1,10 +1,9 @@
 package controlador;
 
-import java.io.IOException;
 import java.util.Scanner;
 
-import modelo.*;
-import vista.VistaConsola;
+import modelo.Jugador;
+import modelo.Universo;
 
 public class ControladorTurno {
 	Scanner sc = new Scanner (System.in);
@@ -91,10 +90,10 @@ public class ControladorTurno {
 				System.out.println("Ingrese la cantidad de integrantes de la nave colonizadora (MIN 1 - MAX " + universo.getPlaneta(stringLeido2).getPoblacion() + ")");
 				leerOpcion();
 				//Agrego los tripulantes
-				universo.getNaveTC(j.getIdJugador()).agregarIntegrantes(opcion);
+				universo.getNaveTC(j.getIdJugador(), universo.getPlaneta(stringLeido).getIdPlaneta()).agregarIntegrantes(opcion);
 				j.getPlaneta(stringLeido2).setPoblacion(j.getPlaneta(stringLeido2).getPoblacion()-opcion);
 				//Hago viajar a la nave al planeta destino
-				universo.getNaveTC(j.getIdJugador()).viajar(universo.getPlaneta(stringLeido2));
+				universo.getNaveTC(j.getIdJugador(), universo.getPlaneta(stringLeido).getIdPlaneta()).viajar(universo.getPlaneta(stringLeido2));
 				break;
 			case 7:
 				//Viaje Nave Batalla
@@ -105,7 +104,7 @@ public class ControladorTurno {
 				System.out.println("Ingrese planeta de donde sale la nave de batalla");
 				leerString2();
 				//Hago viajar a la nave al planeta destino
-				universo.getNaveB(j.getIdJugador()).viajar(universo.getPlaneta(stringLeido2));
+				universo.getNaveB(j.getIdJugador(), universo.getPlaneta(stringLeido2).getIdPlaneta()).viajar(universo.getPlaneta(stringLeido));
 				break;
 			case 8:
 				//Viaje Nave Destructora
@@ -116,29 +115,30 @@ public class ControladorTurno {
 				System.out.println("Ingrese planeta de donde sale la nave de destructora");
 				leerString2();
 				//Hago viajar a la nave al planeta destino
-				universo.getNaveD(j.getIdJugador()).viajar(universo.getPlaneta(stringLeido2));
+				universo.getNaveD(j.getIdJugador(), universo.getPlaneta(stringLeido2).getIdPlaneta()).viajar(universo.getPlaneta(stringLeido));
 				break;
 			case 9:
 				//Colonizar
 				universo.mostrarNavesListasColonizar(j);
 				System.out.println("Elija planeta a colonizar:");
 				leerString();
-				universo.getNaveTC(j.getIdJugador()).colonizar(universo.getPlaneta(stringLeido));
-				universo.getLnavesTC().remove(universo.getNaveTC(j.getIdJugador()));	
+				universo.getNaveTC(j.getIdJugador(), universo.getPlaneta(stringLeido).getIdPlaneta()).colonizar(universo.getPlaneta(stringLeido));
+				universo.getLnavesTC().remove(universo.getNaveTC(j.getIdJugador(), universo.getPlaneta(stringLeido).getIdPlaneta()));	
 				break;
 			case 10:
 				//Nave B ataca Nave B
 				universo.mostrarNavesDeBatallaListasAtacar(j);
 				System.out.println("Elija el planeta cuyas naves de batalla quiere atacar");
 				leerString();
-				universo.getNaveB(j.getIdJugador()).atacarNaveB(universo.getNaveB(universo.getPlaneta(stringLeido).getIdOwner()));
+				//Chequear codigo
+				//universo.getNaveB(j.getIdJugador(), universo.getPlaneta(stringLeido).getIdPlaneta()).atacarNaveB(universo.getNaveB(universo.getPlaneta(stringLeido).getIdOwner()));
 				break;
 			case 11:
 				//Nave D ataca Planeta
 				universo.mostrarNavesDestructoraListasAtacar(j);
 				System.out.println("Elija el planeta que desea atacar");
 				leerString();
-				universo.getNaveD(j.getIdJugador()).atacarPlaneta(universo.getPlaneta(stringLeido));
+				universo.getNaveD(j.getIdJugador(), universo.getPlaneta(stringLeido).getIdPlaneta()).atacarPlaneta(universo.getPlaneta(stringLeido));
 				break;
 			case 12:
 				//Torreta ataca Nave B
