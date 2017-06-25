@@ -53,7 +53,7 @@ public class VistaConsola implements IObservador{
 						if(navTC.isEnTransito() && navTC.getIdOwner()==j.getIdJugador()){
 							System.out.println("Nave Transporte/Colonizadora esta viajando a " + universo.getNombrePlaneta(navTC.getIdPlanetaDest()));
 						}
-						if(!navTC.isEnTransito() && navTC.getIdOwner()!=pl.getIdOwner() && navTC.getIdPlaneta()==pl.getIdPlaneta()){
+						if(!navTC.isEnTransito() && navTC.getIdOwner()==j.getIdJugador() && navTC.getIdPlanetaDest()!=-1){
 							System.out.println("Nave Transporte/Colonizadora lista para colonizar " + universo.getNombrePlaneta(navTC.getIdPlaneta()));
 						}
 					

@@ -47,22 +47,10 @@ public class Universo extends ElementoDelJuego {
 			}
 		pl.avanzarTurno();
 		}
-		for(Jugador j : jugadores){
-		for(Planeta planeta : this.lplanetas){
-				if(!j.getLplanetas().contains(planeta) && j.getIdJugador()==planeta.getIdOwner()){
-					asignarPlaneta(planeta, j.getIdJugador(), planeta.getPoblacion());
-				}
-				
-			}
-		}
-		for(Jugador j : jugadores){
-			if(j.getLplanetas().size()==3){
-				setJuegoFinalizado(true);
-			}
-			
-		}
-		this.actualizarObservadores();
-	}
+		for(Jugador j : jugadores){			for(Planeta planeta : this.lplanetas){					if(!j.getLplanetas().contains(planeta) && j.getIdJugador()==planeta.getIdOwner()){						asignarPlaneta(planeta, j.getIdJugador(), planeta.getPoblacion());					}			}
+		}		for(NaveEspacial nav : lnavesB){			nav.avanzarTurno();		}		for(NaveEspacial nav : lnavesD){			nav.avanzarTurno();		}		for(NaveEspacial nav : lnavesTC){			nav.avanzarTurno();		}
+		for(Jugador j : jugadores){			if(j.getLplanetas().size()==3){				setJuegoFinalizado(true);			}
+		}		this.actualizarObservadores();	}
 	
 	public void setLplanetas(List<Planeta> lplanetas) {
 		this.lplanetas = lplanetas;
@@ -88,26 +76,10 @@ public class Universo extends ElementoDelJuego {
 		return null;
 	}
 	
-	public void asignarPlaneta(Planeta p, int idJugador,int poblacionInicial){
-		if(p.idOwner == -1){
-			for(Jugador j : jugadores){
-				if(idJugador==j.getIdJugador()){
-					j.getLplanetas().add(p);
-					p.idOwner=j.getIdJugador();
-					p.poblacion=poblacionInicial;
-				}
-			}
-		}
-	}
+	public void asignarPlaneta(Planeta p, int idJugador,int poblacionInicial){		if(p.habitado == -1){			for(Jugador j : jugadores){				if(idJugador==j.getIdJugador()){					p.idOwner=idJugador;					p.poblacion=poblacionInicial;					j.getLplanetas().add(p);					p.habitado=0;				}			}		}	}
 	
-	public void unirJugador(Jugador jugador){
-		jugadores.add(jugador);
-		
-	}
-
-
-	public List<Jugador> getJugadores() {
-		return jugadores;
+	public void unirJugador(Jugador jugador){		jugadores.add(jugador);	}
+	public List<Jugador> getJugadores() {		return jugadores;
 	}
 
 
@@ -241,12 +213,12 @@ public class Universo extends ElementoDelJuego {
 	}
 	
 	
-	public void mostrarPlanetasUser(Jugador j){
-		System.out.println("Tus planetas:");
-		for(Planeta pl : getLplanetas()){
-			if(j.getIdJugador()==pl.idOwner){
-			System.out.println(pl.getNombre());
-			}
+	public void mostrarPlanetasUser(Jugador j){
+		System.out.println("Tus planetas:");
+		for(Planeta pl : getLplanetas()){
+			if(j.getIdJugador()==pl.idOwner){
+			System.out.println(pl.getNombre());
+			}
 		}
 	}
 	public void mostrarPlanetasUserEnemigo(Jugador j){

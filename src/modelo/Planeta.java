@@ -35,9 +35,11 @@ public abstract class Planeta extends ElementoDelJuego {
 	protected boolean mejorandoProduccion = false;
 	protected boolean enViajeDeAtaque = false;
 	protected boolean enViajeAColonizar = false;
+	protected int habitado;
 	
 	public Planeta(String nombre){
 		this.idOwner=-1;
+		this.habitado=-1;
 		this.poblacion=0;
 		this.idPlaneta=cantidadPlanetas;
 		this.cantTurnosTor = tpt;
@@ -59,6 +61,9 @@ public abstract class Planeta extends ElementoDelJuego {
 	
 	public int getCantidadTorretas() {
 		return this.cantidadTorretas;
+	}
+	public int getHabitado(){
+		return this.habitado;
 	}
 	public void construirTorretas(){
 		this.construyendoTorretas = true;
