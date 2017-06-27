@@ -29,6 +29,9 @@ public class VistaConsola implements IObservador{
 						if(navB.isEnTransito() && navB.getIdOwner()==j.getIdJugador()){
 							System.out.println("Nave Batalla esta viajando a " + universo.getNombrePlaneta(navB.getIdPlanetaDest()));
 						}
+						if(!navB.isEnTransito() && navB.getIdOwner()==j.getIdJugador() && navB.getIdPlanetaDest()!=-1){
+							System.out.println("Nave de Batalla lista para atacar naves en " + universo.getNombrePlaneta(navB.getIdPlaneta()));
+						}
 					}
 					
 					if(cantNB!=0)
@@ -41,6 +44,9 @@ public class VistaConsola implements IObservador{
 						}
 						if(navD.isEnTransito() && navD.getIdOwner()==j.getIdJugador()){
 							System.out.println("Nave Destructora esta viajando a " + universo.getNombrePlaneta(navD.getIdPlanetaDest()));
+						}
+						if(!navD.isEnTransito() && navD.getIdOwner()==j.getIdJugador() && navD.getIdPlanetaDest()!=-1){
+							System.out.println("Nave Destructora lista para atacar " + universo.getNombrePlaneta(navD.getIdPlaneta()));
 						}
 					}
 					if(cantND!=0)
