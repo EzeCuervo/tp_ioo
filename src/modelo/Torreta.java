@@ -5,7 +5,7 @@ public class Torreta {
 	private int idPlaneta;
 	
 	public Torreta(int idPlaneta){
-		this.damNave=600;
+		this.damNave=1000;
 		this.setIdPlaneta(idPlaneta);
 	}
 	
