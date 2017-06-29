@@ -13,7 +13,7 @@ public class NaveD extends NaveEspacial {
 		planeta.poblacion=planeta.poblacion-damPob;
 		}
 		if(planeta.cantidadTorretas>=0){
-		planeta.cantidadTorretas=planeta.cantidadTorretas-1;
+		planeta.getLtorretas().remove(planeta.getLtorretas().size()-1);
 		}
 		
 	}

@@ -5,9 +5,9 @@ import java.util.List;
 
 public abstract class Planeta extends ElementoDelJuego {
 	private static int cantidadPlanetas = 0;
-	private int tpt=5;
+	private int tpt=1;
 	private int tpcnb=1;
-	private int tpcnd=5;
+	private int tpcnd=1;
 	private int tpcntc=1;
 	private int tpmp=20;
 	private int tpva=3;
@@ -49,11 +49,13 @@ public abstract class Planeta extends ElementoDelJuego {
 		this.cantTurnosMP = tpmp;
 		this.cantTurnosVA = tpva;
 		this.cantTurnosVC = tpvc;
+		this.cantidadTorretas=0;
 		Planeta.cantidadPlanetas= Planeta.cantidadPlanetas+1;
 		this.nombre=nombre;
 		lnavesB = new ArrayList<NaveEspacial>();
 		lnavesD = new ArrayList<NaveEspacial>();
 		lnavesTC = new ArrayList<NaveEspacial>();
+		ltorretas = new ArrayList<Torreta>();
 	}
 	public static int GetCantidadPlanetas(){
 		return Planeta.cantidadPlanetas;
@@ -87,10 +89,11 @@ public abstract class Planeta extends ElementoDelJuego {
 		super.avanzarTurno();
 		if(this.construyendoTorretas){
 			if(cantTurnosTor==0){
-				Torreta tor = new Torreta();
+				Torreta tor = new Torreta(getIdPlaneta());
 				this.ltorretas.add(tor);
 				this.construyendoTorretas=false;
 				this.cantTurnosTor=tpt;
+				this.cantidadTorretas++;
 			}else{
 				this.cantTurnosTor--;
 			}

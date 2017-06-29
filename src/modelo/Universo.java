@@ -8,7 +8,7 @@ public class Universo extends ElementoDelJuego {
 	private List <Jugador> jugadores;
 	private List<NaveEspacial> lnavesB;
 	private List<NaveEspacial> lnavesD;
-	private List<NaveEspacial> lnavesTC;
+	private List<NaveEspacial> lnavesTC;	
 
 	public void avanzarTurno(){
 		super.avanzarTurno();
@@ -31,20 +31,9 @@ public class Universo extends ElementoDelJuego {
 				}
 				pl.getLnavesTC().clear();
 			}
-			if(lnavesB.size()!=0){
-				for(NaveEspacial nav: lnavesB){
-					if(nav.getResistencia()<=0){
-						lnavesB.remove(nav);
-					}
-				}
+			if(lnavesB.size()!=0){				Iterator<NaveEspacial> iterB = lnavesB.iterator();				while(iterB.hasNext()){					NaveEspacial nav = iterB.next();					if(nav.getResistencia()<=0){						iterB.remove();					}				}
 			}
-			if(lnavesD.size()!=0){
-				for(NaveEspacial nav: lnavesD){
-					if(nav.getResistencia()<=0){
-						lnavesD.remove(nav);
-					}
-				}
-			}
+			if(lnavesD.size()!=0){				Iterator<NaveEspacial> iterD = lnavesD.iterator();				while(iterD.hasNext()){					NaveEspacial nav = iterD.next();					if(nav.getResistencia()<=0){						iterD.remove();					}				}			}
 		pl.avanzarTurno();
 		}
 		for(Jugador j : jugadores){			for(Planeta planeta : this.lplanetas){					if(!j.getLplanetas().contains(planeta) && j.getIdJugador()==planeta.getIdOwner()){						asignarPlaneta(planeta, j.getIdJugador(), planeta.getPoblacion());					}			}

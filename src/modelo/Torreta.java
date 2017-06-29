@@ -2,9 +2,11 @@ package modelo;
 
 public class Torreta {
 	private int damNave;
+	private int idPlaneta;
 	
-	public Torreta(){
+	public Torreta(int idPlaneta){
 		this.damNave=600;
+		this.setIdPlaneta(idPlaneta);
 	}
 	
 
@@ -24,7 +26,18 @@ public class Torreta {
 			nav.resistencia=nav.resistencia-damNave;
 		}
 	}
+
+
+	public int getIdPlaneta() {
+		return idPlaneta;
+	}
+
+
+	public void setIdPlaneta(int idPlaneta) {
+		this.idPlaneta = idPlaneta;
+	}
 	
 	
 
 }
+;

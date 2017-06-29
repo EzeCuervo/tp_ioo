@@ -13,7 +13,7 @@ public class Terrestre extends Planeta{
 	}
 	public String toString() {
 		// TODO Auto-generated method stub
-		return"El Planeta " + this.nombre + " es un terrestre con " + this.poblacion +  " habitantes. Ademas las siguientes naves estan en su orbita: ";
+		return"El Planeta " + this.nombre + " es un terrestre con " + this.poblacion +  " habitantes y " + this.getLtorretas().size() + " torretas. Ademas las siguientes naves estan en su orbita: ";
 	}
 
 }
