@@ -2,7 +2,7 @@ package main;
 import controlador.ControladorTurno;
 import modelo.Universo;
 import vista.VistaConsola;
-import vista.VistaVentana;
+import vistaVentana.Principal;
 
 
 public class Programa {
@@ -11,10 +11,8 @@ public class Programa {
 		// TODO Auto-generated method stub
 		Universo universo = new Universo ();
 		VistaConsola vista = new VistaConsola(universo);
-		//VistaVentana vistav = new VistaVentana(universo);
 		ControladorTurno controlador = new ControladorTurno (universo);
 		universo.registrarObservador(vista);
-		//universo.registrarObservador(vistav);
 		
 		//Se crean los 2 usuarios de juego
 		for(int i=0; i<2;i++){
