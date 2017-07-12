@@ -2,16 +2,13 @@ package vistaVentana;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import controlador.ControladorVentanas;
+import controlador.ControladorVentana;
 import modelo.Jugador;
 import modelo.Planeta;
 import modelo.Universo;
@@ -22,14 +19,14 @@ public class ColonizarPlaneta extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-		ControladorVentanas controlador;
+		ControladorVentana controlador;
 		JButton btnCrear;
 		private JComboBox<String> comboBox;
 		private Universo universo;
 		private Jugador jugador;
 		private Object [] array;
 		
-		public ColonizarPlaneta(Universo universo, Jugador jugador, ControladorVentanas controlador){
+		public ColonizarPlaneta(Universo universo, Jugador jugador, ControladorVentana controlador){
 			setPreferredSize(new Dimension(272, 140));
 			setMinimumSize(new Dimension(272, 140));
 			setMaximumSize(new Dimension(272, 140));
@@ -63,7 +60,7 @@ public class ColonizarPlaneta extends JFrame {
 			this.getContentPane().add(btnCrear, "cell 1 3,alignx center");
 
 		}
-		public void setControlador(ControladorVentanas controlador){
+		public void setControlador(ControladorVentana controlador){
 			this.controlador=controlador;
 		}
 

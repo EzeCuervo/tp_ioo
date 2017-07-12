@@ -8,8 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import controlador.ControladorVentanas;
-import modelo.Universo;
+import controlador.ControladorVentana;
 import net.miginfocom.swing.MigLayout;
 
 public class AddPlayer extends JFrame {
@@ -18,7 +17,7 @@ public class AddPlayer extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 		JTextField textField;
-		ControladorVentanas controlador;
+		ControladorVentana controlador;
 		JButton btnAgregar;
 		
 		public AddPlayer(){
@@ -47,7 +46,7 @@ public class AddPlayer extends JFrame {
 			this.getContentPane().add(btnAgregar, "cell 1 3,alignx center");
 
 		}
-		public void setControlador(ControladorVentanas controlador){
+		public void setControlador(ControladorVentana controlador){
 			this.controlador=controlador;
 		}
 

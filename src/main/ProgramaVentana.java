@@ -1,23 +1,18 @@
 package main;
-import java.awt.EventQueue;
-
-import controlador.ControladorVentanas;
-import modelo.Jugador;
+import controlador.ControladorVentana;
 import modelo.Universo;
 import vistaVentana.AddPlayer;
 import vistaVentana.Principal;
 
 
-public class Programa2 {
+public class ProgramaVentana {
 
 	public static void main(String[] args) {
 		// Instancio todas las clases
-		//EventQueue.invokeLater(new Runnable() {// runnable es una interfaz
-		//	public void run (){
 		Universo universo = new Universo ();
 		Principal vistaprincipal = new Principal(universo);
 		AddPlayer vistaaddplayer = new AddPlayer();
-		ControladorVentanas controladorv = new ControladorVentanas(universo);
+		ControladorVentana controladorv = new ControladorVentana(universo);
 		
 		//Registro las ventanas en el controlador
 		controladorv.setVistaPrincipal(vistaprincipal);
@@ -32,7 +27,7 @@ public class Programa2 {
 		
 		//Se crean los usuarios de juego (2)
 		while(universo.getJugadores().size()<2){
-		vistaaddplayer.setVisible(true);
+			vistaaddplayer.setVisible(true);
 		}
 		vistaaddplayer.setVisible(false);
 		
@@ -44,15 +39,9 @@ public class Programa2 {
   		controladorv.setJugadorControlador(universo.getJugadores().get(0));
   		vistaprincipal.setVisible(true);
   		vistaprincipal.inicioJuegoVentana();
-  		//vistaprincipal.menuAccionesVentana();
   		vistaprincipal.leToca();
-			}
+	}
 }
-		//	});
-  		//controladorv.Ejecutar();
-
-		//Pantalla de fin de juego
-		//vista.juegoFinalizado();*/
 
 
 	

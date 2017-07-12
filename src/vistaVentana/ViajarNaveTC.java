@@ -2,29 +2,28 @@ package vistaVentana;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-import controlador.ControladorVentanas;
+import controlador.ControladorVentana;
 import modelo.Jugador;
 import modelo.Planeta;
 import modelo.Universo;
 import net.miginfocom.swing.MigLayout;
-import javax.swing.JTextField;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class ViajarNaveTC extends JFrame {
 		/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-		ControladorVentanas controlador;
+		ControladorVentana controlador;
 		JButton btnEnviar;
 		private JComboBox<String> comboBoxOrigen;
 		private Universo universo;
@@ -34,13 +33,13 @@ public class ViajarNaveTC extends JFrame {
 		private JComboBox<String> comboBoxDest;
 		private JTextField cantTripulantes;
 		
-		public ViajarNaveTC(Universo universo, Jugador jugador, ControladorVentanas controlador){
+		public ViajarNaveTC(Universo universo, Jugador jugador, ControladorVentana controlador){
 			setPreferredSize(new Dimension(272, 140));
 			setMinimumSize(new Dimension(272, 200));
 			setMaximumSize(new Dimension(272, 200));
 			setResizable(false);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			this.setTitle("Crear Nave Transportadora/Colonizadora");
+			this.setTitle("Enviar Nave Transportadora/Colonizadora");
 			this.getContentPane().setLayout(new MigLayout("", "[][grow]", "[][][][][][][][][][][][][]"));
 			this.jugador=jugador;
 			this.universo=universo;
@@ -90,7 +89,7 @@ public class ViajarNaveTC extends JFrame {
 			this.getContentPane().add(btnEnviar, "cell 1 6,alignx center");
 
 		}
-		public void setControlador(ControladorVentanas controlador){
+		public void setControlador(ControladorVentana controlador){
 			this.controlador=controlador;
 		}
 

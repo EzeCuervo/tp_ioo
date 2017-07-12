@@ -8,7 +8,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import controlador.ControladorVentanas;
+import controlador.ControladorVentana;
 import modelo.Jugador;
 import modelo.Planeta;
 import modelo.Universo;
@@ -19,13 +19,13 @@ public class AddTorreta extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-		ControladorVentanas controlador;
+		ControladorVentana controlador;
 		JButton btnCrear;
 		private JComboBox<String> comboBox;
 		private Universo universo;
 		private Jugador jugador;
 		
-		public AddTorreta(Universo universo, Jugador jugador, ControladorVentanas controlador){
+		public AddTorreta(Universo universo, Jugador jugador, ControladorVentana controlador){
 			setPreferredSize(new Dimension(272, 140));
 			setMinimumSize(new Dimension(272, 140));
 			setMaximumSize(new Dimension(272, 140));
@@ -59,7 +59,7 @@ public class AddTorreta extends JFrame {
 			this.getContentPane().add(btnCrear, "cell 1 3,alignx center");
 
 		}
-		public void setControlador(ControladorVentanas controlador){
+		public void setControlador(ControladorVentana controlador){
 			this.controlador=controlador;
 		}
 

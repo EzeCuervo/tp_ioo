@@ -1,17 +1,16 @@
 package main;
-import controlador.ControladorTurno;
+import controlador.ControladorConsola;
 import modelo.Universo;
-import vista.VistaConsola;
-import vistaVentana.Principal;
+import vistaConsola.VistaConsola;
 
 
-public class Programa {
+public class ProgramaConsola {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Universo universo = new Universo ();
 		VistaConsola vista = new VistaConsola(universo);
-		ControladorTurno controlador = new ControladorTurno (universo);
+		ControladorConsola controlador = new ControladorConsola (universo);
 		universo.registrarObservador(vista);
 		
 		//Se crean los 2 usuarios de juego

@@ -8,10 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextPane;
 
-import controlador.ControladorVentanas;
+import controlador.ControladorVentana;
 import modelo.Jugador;
 import modelo.NaveEspacial;
 import modelo.Planeta;
@@ -25,7 +23,7 @@ import observer.IObservador;
 		 */
 		private static final long serialVersionUID = 1L;
 		private Universo universo;
-		private ControladorVentanas controlador;
+		private ControladorVentana controlador;
 		public TextArea textArea;
 		private Jugador jugador;
 		private AddNaveB vistanb;
@@ -189,7 +187,7 @@ import observer.IObservador;
 			this.jugador=j;
 		}
 		
-		public void setControlador(ControladorVentanas controlador){
+		public void setControlador(ControladorVentana controlador){
 			this.controlador=controlador;
 		}
 

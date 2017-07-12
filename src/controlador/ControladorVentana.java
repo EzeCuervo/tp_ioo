@@ -1,19 +1,16 @@
 package controlador;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import modelo.Jugador;
 import modelo.Universo;
 import vistaVentana.AddPlayer;
 import vistaVentana.Principal;
 
-public class ControladorVentanas {
+public class ControladorVentana {
 	public Universo universo;
 	private AddPlayer vistadd;
 	private Principal vistaprin;
 	private Jugador jugador;
 
-	public ControladorVentanas(Universo universo){
+	public ControladorVentana(Universo universo){
 		super();
 		this.universo=universo;
 	}

@@ -5,7 +5,7 @@ import java.util.Scanner;
 import modelo.Jugador;
 import modelo.Universo;
 
-public class ControladorTurno {
+public class ControladorConsola {
 	Scanner sc = new Scanner (System.in);
 	Scanner sc2 = new Scanner (System.in);
 	Scanner sc3 = new Scanner (System.in);
@@ -15,7 +15,7 @@ public class ControladorTurno {
 	String stringLeido2;
 	public Universo universo;
 	
-	public ControladorTurno(Universo universo){
+	public ControladorConsola(Universo universo){
 		super();
 		this.universo=universo;
 	}

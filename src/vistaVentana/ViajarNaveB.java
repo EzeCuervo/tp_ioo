@@ -7,24 +7,19 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
-import controlador.ControladorVentanas;
+import controlador.ControladorVentana;
 import modelo.Jugador;
 import modelo.Planeta;
 import modelo.Universo;
 import net.miginfocom.swing.MigLayout;
-import javax.swing.JTextField;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class ViajarNaveB extends JFrame {
 		/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-		ControladorVentanas controlador;
+		ControladorVentana controlador;
 		JButton btnEnviar;
 		private JComboBox<String> comboBoxOrigen;
 		private Universo universo;
@@ -32,7 +27,7 @@ public class ViajarNaveB extends JFrame {
 		private JLabel lblPlanetaDestino;
 		private JComboBox<String> comboBoxDest;
 		
-		public ViajarNaveB(Universo universo, Jugador jugador, ControladorVentanas controlador){
+		public ViajarNaveB(Universo universo, Jugador jugador, ControladorVentana controlador){
 			setPreferredSize(new Dimension(272, 140));
 			setMinimumSize(new Dimension(272, 200));
 			setMaximumSize(new Dimension(272, 200));
@@ -75,7 +70,7 @@ public class ViajarNaveB extends JFrame {
 			this.getContentPane().add(btnEnviar, "cell 1 6,alignx center");
 
 		}
-		public void setControlador(ControladorVentanas controlador){
+		public void setControlador(ControladorVentana controlador){
 			this.controlador=controlador;
 		}
 

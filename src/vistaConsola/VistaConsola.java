@@ -1,4 +1,4 @@
-package vista;
+package vistaConsola;
 
 import observer.IObservador;
 import modelo.*;
