@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
@@ -235,6 +236,8 @@ import observer.IObservador;
 			
 			if(controlador.finalizarJuego()){
 				this.textArea.append("El Juego ha finalizado.\n");
+				JOptionPane.showMessageDialog(null,"JUEGO FINALIZADO\n Ganador: " + jugador.getNombre());
+				System.exit(0);
 			}
 			if(!controlador.finalizarJuego()){
 			jugador=controlador.getJugador();
