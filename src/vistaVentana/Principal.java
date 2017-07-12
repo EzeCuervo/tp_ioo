@@ -26,6 +26,21 @@ import observer.IObservador;
 		private Universo universo;
 		private ControladorVentanas controlador;
 		public TextArea textArea;
+		private Jugador jugador;
+		private AddNaveB vistanb;
+		private AddNaveD vistand;
+		private AddNaveTC vistantc;
+		private AddTorreta	vistator;
+		private MejorarPlaneta vistamejorar;
+		private ViajarNaveTC vistaviajarntc;
+		private ViajarNaveB vistaviajarnaveb;
+		private ViajarNaveD vistaviajarnaved;
+		private ColonizarPlaneta vistacolonizar;
+		private AtacarNaveB vistaatacarnavb;
+		private AtacarPlaneta vistaatacarplan;
+		private AtacarNaveBCT vistaatacarnavbct;
+		private AtacarNaveDCT vistaatacarnavdct;
+		private boolean juegoFinalizado = false;
 		
 		public Principal(Universo universo){
 			setMinimumSize(new Dimension(790, 450));
@@ -35,7 +50,9 @@ import observer.IObservador;
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setTitle("Juego - Universo");
 			this.universo = universo;
+			this.jugador=null;
 			this.getContentPane().setLayout(new MigLayout("", "[][grow]", "[][][][][][][][][][][][][][][grow]"));
+
 			
 			JLabel lblSeleccioneUnaOpcion = new JLabel("Seleccione una opcion:");
 			this.getContentPane().add(lblSeleccioneUnaOpcion, "cell 0 0");
@@ -43,57 +60,132 @@ import observer.IObservador;
 			JButton btnProducirNaveBatalla = new JButton("Producir Nave Batalla");
 			btnProducirNaveBatalla.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					vistanb = new AddNaveB(universo, jugador, controlador);
+					vistanb.setVisible(true);
+
 				}
 			});
-			this.getContentPane().add(btnProducirNaveBatalla, "cell 0 1");
+			this.getContentPane().add(btnProducirNaveBatalla, "cell 0 1,growx");
 			
 			JButton btnProducirNaveDestructora = new JButton("Producir Nave Destructora");
-			this.getContentPane().add(btnProducirNaveDestructora, "cell 0 2");
+			btnProducirNaveDestructora.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					vistand = new AddNaveD(universo, jugador, controlador);
+					vistand.setVisible(true);
+
+				}
+			});
+			this.getContentPane().add(btnProducirNaveDestructora, "cell 0 2,growx");
 			
 			JButton btnProducirNaveColonizadora = new JButton("Producir Nave Colonizadora");
-			this.getContentPane().add(btnProducirNaveColonizadora, "cell 0 3");
+			btnProducirNaveColonizadora.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					vistantc = new AddNaveTC(universo, jugador, controlador);
+					vistantc.setVisible(true);
+
+				}
+			});
+			this.getContentPane().add(btnProducirNaveColonizadora, "cell 0 3,growx");
 			
 			JButton btnProducirTorreta = new JButton("Producir Torreta");
-			this.getContentPane().add(btnProducirTorreta, "cell 0 4");
+			btnProducirTorreta.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					vistator = new AddTorreta(universo, jugador, controlador);
+					vistator.setVisible(true);
+
+				}
+			});
+			this.getContentPane().add(btnProducirTorreta, "cell 0 4,growx");
 			
 			JButton btnMejorarProduccionPlaneta = new JButton("Mejorar Produccion Planeta");
-			this.getContentPane().add(btnMejorarProduccionPlaneta, "cell 0 5");
+			btnMejorarProduccionPlaneta.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					 vistamejorar = new MejorarPlaneta(universo, jugador, controlador);
+					 vistamejorar.setVisible(true);
+				}
+			});
+			this.getContentPane().add(btnMejorarProduccionPlaneta, "cell 0 5,growx");
 			
 			JButton btnEnviarNaveColonizadora = new JButton("Enviar Nave Colonizadora a Planeta");
-			this.getContentPane().add(btnEnviarNaveColonizadora, "cell 0 6");
+			btnEnviarNaveColonizadora.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					vistaviajarntc = new ViajarNaveTC(universo, jugador, controlador);
+					vistaviajarntc.setVisible(true);
+				}
+			});
+			this.getContentPane().add(btnEnviarNaveColonizadora, "cell 0 6,growx");
 			
 			JButton btnEnviarNaveBatalla = new JButton("Enviar Nave Batalla a Planeta");
-			this.getContentPane().add(btnEnviarNaveBatalla, "cell 0 7");
+			btnEnviarNaveBatalla.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					 vistaviajarnaveb = new ViajarNaveB(universo, jugador, controlador);
+					 vistaviajarnaveb.setVisible(true);
+				}
+			});
+			this.getContentPane().add(btnEnviarNaveBatalla, "cell 0 7,growx");
 			
 			JButton btnEnviarNaveDestructora = new JButton("Enviar Nave Destructora a Planeta");
-			this.getContentPane().add(btnEnviarNaveDestructora, "cell 0 8");
+			btnEnviarNaveDestructora.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					 vistaviajarnaved = new ViajarNaveD(universo, jugador, controlador);
+					 vistaviajarnaved.setVisible(true);
+				}
+			});
+			this.getContentPane().add(btnEnviarNaveDestructora, "cell 0 8,growx");
 			
 			JButton btnColonizarPlaneta = new JButton("Colonizar Planeta");
-			this.getContentPane().add(btnColonizarPlaneta, "cell 0 9");
+			btnColonizarPlaneta.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					 vistacolonizar = new ColonizarPlaneta(universo, jugador, controlador);
+					 vistacolonizar.setVisible(true);
+				}
+			});
+			this.getContentPane().add(btnColonizarPlaneta, "cell 0 9,growx");
 			
 			JButton btnAtacarNave = new JButton("Atacar Nave");
-			this.getContentPane().add(btnAtacarNave, "cell 0 10");
+			btnAtacarNave.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					vistaatacarnavb = new AtacarNaveB(universo, jugador, controlador);
+					vistaatacarnavb.setVisible(true);
+				}
+			});
+			this.getContentPane().add(btnAtacarNave, "cell 0 10,growx");
 			
 			JButton btnAtacarPlaneta = new JButton("Atacar Planeta");
 			btnAtacarPlaneta.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
+					vistaatacarplan = new AtacarPlaneta(universo, jugador, controlador);
+					vistaatacarplan.setVisible(true);
 				}
 			});
-			this.getContentPane().add(btnAtacarPlaneta, "cell 0 11");
+			this.getContentPane().add(btnAtacarPlaneta, "cell 0 11,growx");
 			
 			JButton btnAtacarNaveBatalla = new JButton("Atacar Nave Batalla con Torreta");
 			btnAtacarNaveBatalla.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
+				public void actionPerformed(ActionEvent arg0) {
+					vistaatacarnavbct = new AtacarNaveBCT(universo, jugador, controlador);
+					vistaatacarnavbct.setVisible(true);
 				}
 			});
-			this.getContentPane().add(btnAtacarNaveBatalla, "cell 0 12");
+			this.getContentPane().add(btnAtacarNaveBatalla, "cell 0 12,growx");
 			
 			JButton btnAtacarNaveDestructora = new JButton("Atacar Nave Destructora con Torreta");
-			this.getContentPane().add(btnAtacarNaveDestructora, "cell 0 13");
+			btnAtacarNaveDestructora.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					vistaatacarnavdct = new AtacarNaveDCT(universo, jugador, controlador);
+					vistaatacarnavdct.setVisible(true);
+				}
+			});
+			this.getContentPane().add(btnAtacarNaveDestructora, "cell 0 13,growx");
 			
 			this.textArea = new TextArea();
+			textArea.setEditable(false);
 			this.getContentPane().add(textArea, "cell 1 1 1 13,grow");
 			
+		}
+		
+		public void setJugador(Jugador j){
+			this.jugador=j;
 		}
 		
 		public void setControlador(ControladorVentanas controlador){
@@ -132,8 +224,20 @@ import observer.IObservador;
 			this.textArea.append("Seleccione una opcion:\n");
 
 		}
+		public void leToca(){
+			this.textArea.append("Le toca a " + jugador.getNombre() + "\n");
+			this.textArea.append("Elija una opcion \n");
+		}
+		
+		
 		
 		public void actualizar(){
+			
+			if(controlador.finalizarJuego()){
+				this.textArea.append("El Juego ha finalizado.\n");
+			}
+			if(!controlador.finalizarJuego()){
+			jugador=controlador.getJugador();
 			this.textArea.append("*******************************************\n");
 			this.textArea.append("********************************************\n");
 			this.textArea.append("Universo\n");
@@ -143,7 +247,7 @@ import observer.IObservador;
 				for(Planeta pl: this.universo.getLplanetas()){
 					int cantNB=0, cantND=0, cantNTC=0;
 					if(pl.getIdOwner()==j.getIdJugador()){
-						System.out.println(pl.toString()+"\n");
+						this.textArea.append(pl.toString()+"\n");
 						for(NaveEspacial navB: this.universo.getLnavesB()){
 							
 							if(navB.getIdPlaneta()==pl.getIdPlaneta() && navB.getIdOwner() == j.getIdJugador() && !navB.isEnTransito()){
@@ -151,15 +255,15 @@ import observer.IObservador;
 								//System.out.println(navB.toString());
 							}
 							if(navB.isEnTransito() && navB.getIdOwner()==j.getIdJugador()){
-								System.out.println("Nave Batalla esta viajando a " + universo.getNombrePlaneta(navB.getIdPlanetaDest()) +"\n");
+								this.textArea.append("Nave Batalla esta viajando a " + universo.getNombrePlaneta(navB.getIdPlanetaDest()) +"\n");
 							}
 							if(!navB.isEnTransito() && navB.getIdOwner()==j.getIdJugador() && navB.getIdPlanetaDest()!=-1){
-								System.out.println("Nave de Batalla lista para atacar naves en " + universo.getNombrePlaneta(navB.getIdPlaneta())+"\n");
+								this.textArea.append("Nave de Batalla lista para atacar naves en " + universo.getNombrePlaneta(navB.getIdPlaneta())+"\n");
 							}
 						}
 						
 						if(cantNB!=0)
-						System.out.println(cantNB + " Nave/s Batalla en " + pl.getNombre());
+							this.textArea.append(cantNB + " Nave/s Batalla en " + pl.getNombre()+"\n");
 						
 						for(NaveEspacial navD: this.universo.getLnavesD()){
 							if(navD.getIdPlaneta()==pl.getIdPlaneta() && navD.getIdOwner() == j.getIdJugador() && !navD.isEnTransito()){
@@ -167,34 +271,35 @@ import observer.IObservador;
 								//System.out.println(navB.toString());
 							}
 							if(navD.isEnTransito() && navD.getIdOwner()==j.getIdJugador()){
-								System.out.println("Nave Destructora esta viajando a " + universo.getNombrePlaneta(navD.getIdPlanetaDest()));
+								this.textArea.append("Nave Destructora esta viajando a " + universo.getNombrePlaneta(navD.getIdPlanetaDest())+"\n");
 							}
 							if(!navD.isEnTransito() && navD.getIdOwner()==j.getIdJugador() && navD.getIdPlanetaDest()!=-1){
-								System.out.println("Nave Destructora lista para atacar " + universo.getNombrePlaneta(navD.getIdPlaneta()));
+								this.textArea.append("Nave Destructora lista para atacar " + universo.getNombrePlaneta(navD.getIdPlaneta())+"\n");
 							}
 						}
 						if(cantND!=0)
-						System.out.println(cantND + " Nave/s Destructora en " + pl.getNombre());
+							this.textArea.append(cantND + " Nave/s Destructora en " + pl.getNombre()+"\n");
 						for(NaveEspacial navTC: this.universo.getLnavesTC()){
 							if(navTC.getIdPlaneta()==pl.getIdPlaneta() && navTC.getIdOwner() == j.getIdJugador() && !navTC.isEnTransito()){
 								cantNTC++;
 								//System.out.println(navTC.toString());
 							}
 							if(navTC.isEnTransito() && navTC.getIdOwner()==j.getIdJugador()){
-								System.out.println("Nave Transporte/Colonizadora esta viajando a " + universo.getNombrePlaneta(navTC.getIdPlanetaDest()));
+								this.textArea.append("Nave Transporte/Colonizadora esta viajando a " + universo.getNombrePlaneta(navTC.getIdPlanetaDest())+"\n");
 							}
 							if(!navTC.isEnTransito() && navTC.getIdOwner()==j.getIdJugador() && navTC.getIdPlanetaDest()!=-1){
-								System.out.println("Nave Transporte/Colonizadora lista para colonizar " + universo.getNombrePlaneta(navTC.getIdPlaneta()));
+								this.textArea.append("Nave Transporte/Colonizadora lista para colonizar " + universo.getNombrePlaneta(navTC.getIdPlaneta())+"\n");
 							}
 						
 						}
 						if(cantNTC!=0)
-						System.out.println(cantNTC + " Nave/s Colonizadora/Transportadora en " + pl.getNombre());
+							this.textArea.append(cantNTC + " Nave/s Colonizadora/Transportadora en " + pl.getNombre()+"\n");
 					}
 				}
 			}
-			System.out.println("********************************************");
-			this.textArea.append("Elija una opcion\n");
+			this.textArea.append("********************************************"+"\n");
+			leToca();
+			}
 		}
 		
 		public void leerJugadores(){

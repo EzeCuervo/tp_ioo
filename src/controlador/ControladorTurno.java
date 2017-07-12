@@ -150,7 +150,7 @@ public class ControladorTurno {
 					break;
 				case 13:
 					//Torreta ataca Nave D
-					universo.mostrarNavesBEnemigasEnOrbita(j);
+					universo.mostrarNavesDEnemigasEnOrbita(j);
 					System.out.println("Elija el planeta que desea defender");
 					leerString();
 					universo.getPlaneta(stringLeido).getTorreta().atacarNaveD(universo.mostrarNavesDEnemigasTorreteables(universo.getPlaneta(stringLeido)));

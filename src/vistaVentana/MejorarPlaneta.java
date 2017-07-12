@@ -14,7 +14,7 @@ import modelo.Planeta;
 import modelo.Universo;
 import net.miginfocom.swing.MigLayout;
 
-public class AddNaveB extends JFrame {
+public class MejorarPlaneta extends JFrame {
 		/**
 	 * 
 	 */
@@ -25,7 +25,7 @@ public class AddNaveB extends JFrame {
 		private Universo universo;
 		private Jugador jugador;
 		
-		public AddNaveB(Universo universo, Jugador jugador, ControladorVentanas controlador){
+		public MejorarPlaneta(Universo universo, Jugador jugador, ControladorVentanas controlador){
 			setPreferredSize(new Dimension(272, 140));
 			setMinimumSize(new Dimension(272, 140));
 			setMaximumSize(new Dimension(272, 140));

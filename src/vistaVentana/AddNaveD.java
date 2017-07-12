@@ -14,7 +14,7 @@ import modelo.Planeta;
 import modelo.Universo;
 import net.miginfocom.swing.MigLayout;
 
-public class AddNaveB extends JFrame {
+public class AddNaveD extends JFrame {
 		/**
 	 * 
 	 */
@@ -25,13 +25,13 @@ public class AddNaveB extends JFrame {
 		private Universo universo;
 		private Jugador jugador;
 		
-		public AddNaveB(Universo universo, Jugador jugador, ControladorVentanas controlador){
+		public AddNaveD(Universo universo, Jugador jugador, ControladorVentanas controlador){
 			setPreferredSize(new Dimension(272, 140));
 			setMinimumSize(new Dimension(272, 140));
 			setMaximumSize(new Dimension(272, 140));
 			setResizable(false);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			this.setTitle("Crear Nave Batalla");
+			this.setTitle("Crear Nave Destructora");
 			this.getContentPane().setLayout(new MigLayout("", "[][grow]", "[][][][]"));
 			this.jugador=jugador;
 			this.universo=universo;
@@ -43,7 +43,7 @@ public class AddNaveB extends JFrame {
 			btnCrear = new JButton("Crear");
 			btnCrear.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					controlador.crearNaveB((String)comboBox.getSelectedItem());
+					controlador.crearNaveD((String)comboBox.getSelectedItem());
 					controlador.setJugador(jugador);
 					controlador.avanzarTurno();
 					setVisible(false);

@@ -9,10 +9,10 @@ public class NaveD extends NaveEspacial {
 		
 	}
 	public void atacarPlaneta(Planeta planeta){
-		if(planeta.poblacion>=0){
+		if(planeta.poblacion>0){
 		planeta.poblacion=planeta.poblacion-damPob;
 		}
-		if(planeta.cantidadTorretas>=0){
+		if(planeta.cantidadTorretas>0){
 		planeta.getLtorretas().remove(planeta.getLtorretas().size()-1);
 		}
 		
