@@ -202,6 +202,7 @@ import observer.IObservador;
 						this.textArea.append("Tiene el planeta " + pl.getNombre() + "\n");
 				}
 			}
+			this.textArea.append("********************************************\n");
 		}
 		public void menuAccionesVentana(){
 			this.textArea.append("********************************************\n");
